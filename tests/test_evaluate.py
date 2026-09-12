@@ -237,3 +237,10 @@ def test_evaluate_run_tolerates_a_topic_missing_from_the_run():
     out = evaluate_run({}, {4: {"a": 1}}, [4])
     assert out["ap"].tolist() == [0.0]
     assert out["interp"].shape == (1, 11)
+
+
+def test_evaluate_run_rejects_duplicate_docnos():
+    run = {1: [("a", 2.0), ("a", 1.0)]}
+    qrels = {1: {"a": 1}}
+    with pytest.raises(ValueError, match="duplicate"):
+        evaluate_run(run, qrels, [1])

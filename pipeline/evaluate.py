@@ -242,6 +242,8 @@ def evaluate_run(
         rel = {docno for docno, value in judgments.items() if value == 1}
         judged = set(judgments)
         ranked = [docno for docno, _ in run.get(num, [])]
+        if len(set(ranked)) != len(ranked):
+            raise ValueError(f"topic {num}: ranking contains duplicate document numbers")
         rows["ap"].append(average_precision(ranked, rel))
         rows["p10"].append(precision_at(ranked, rel, 10))
         rows["ndcg10"].append(ndcg_at(ranked, rel, 10))
