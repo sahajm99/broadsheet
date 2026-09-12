@@ -108,7 +108,7 @@
               autocomplete="off"
               spellcheck="false"
               placeholder="Try a word or a phrase"
-              aria-label="Search 5,368 Financial Times articles from 1991"
+              aria-label="Search the Financial Times articles"
             />
           </span>
           <span class="q-ranker">
@@ -123,7 +123,9 @@
 
         <ul class="chips">
           <li>
-            <button class="chip" type="button" data-q="Chunnel">Chunnel</button>
+            <button class="chip" type="button" data-q="Channel tunnel">
+              Channel tunnel
+            </button>
           </li>
           <li>
             <button class="chip" type="button" data-q="Antarctica exploration">
@@ -161,10 +163,22 @@
 
         <p id="q-status" role="status"></p>
         <ol id="results"></ol>
+
+        <p>
+          Open "Why this ranked here" under any result and the ranking stops
+          being an opinion. Each row is one stem your query survived as, with
+          how often it appears in the query and in that article, how many
+          articles contain it at all, its inverse document frequency, and the
+          share of the final score it carried. Words the index has never seen
+          are listed too, because a query that finds nothing is usually a query
+          whose words this newspaper never printed. The engine running in your
+          browser is a port of the pipeline that produced every number below,
+          and a test checks that its top ten matches the pipeline's for every
+          topic title in the evaluation.
+        </p>
       </section>
 
       <section id="terms">
-        <span class="kicker">Section one</span>
         <h2>From text to terms</h2>
         <p>
           Before anything can be searched it has to be cut into terms. The
@@ -174,6 +188,16 @@
           remaining tokens as stopwords, and folds what is left with the Porter
           stemmer: <span data-stat="n_types_nostop|int">&mdash;</span> word
           forms become <span data-stat="n_types_stem|int">&mdash;</span> stems.
+        </p>
+        <p>
+          Each rule costs something. Throwing away tokens with digits removes
+          prices, dates and share counts, which is a good part of what a
+          financial newspaper prints. The stopword list takes out half the
+          token stream, and with it any query that leans on function words.
+          Stemming merges forms that mean the same thing, and a few that do
+          not. What the rules buy is size and reach: shorter posting lists, a
+          smaller index to ship, and a search for one form of a word that finds
+          the others.
         </p>
         <div
           class="fig"
@@ -185,7 +209,8 @@
           Vocabulary keeps growing as text arrives, at roughly
           tokens<sup><span data-stat="heaps_beta|2">&mdash;</span></sup>, and
           frequency falls away as roughly one over rank, with a fitted slope of
-          <span data-stat="zipf_slope|2">&mdash;</span>.
+          <span data-stat="zipf_slope|2">&mdash;</span>. The next two charts
+          plot both on log axes, where a power law is a straight line.
         </p>
         <div
           class="fig"
@@ -199,10 +224,17 @@
           data-chart="zipf"
           style="--fig-h: 460px"
         ></div>
+        <p>
+          Neither fitted exponent is the one the textbooks quote. Vocabulary
+          here grows faster than the usual square-root rule of thumb, because a
+          month of newspaper copy keeps introducing names. Frequency falls away
+          more slowly than one over rank. Both fits are straight lines drawn
+          through curves that are not straight, so read them as a summary of
+          this collection rather than as a law it obeys.
+        </p>
       </section>
 
       <section id="index">
-        <span class="kicker">Section two</span>
         <h2>The index</h2>
         <p>
           The inverted index holds
@@ -213,6 +245,14 @@
           <span data-stat="median_doc_len|int">&mdash;</span> terms long once
           the stopwords are gone.
         </p>
+        <p>
+          Those two facts shape everything that follows. Nearly half the
+          vocabulary is dead weight for retrieval, cheap to store and almost
+          never asked for, while a handful of stems appear in thousands of
+          articles and carry almost no information. And the articles themselves
+          are short and much of a muchness in length, which is worth
+          remembering when the length normalisation in BM25 is tuned later on.
+        </p>
         <div
           class="fig"
           id="fig-lengths"
@@ -220,10 +260,13 @@
           style="--fig-h: 440px"
         ></div>
         <p>
-          The heaviest stems are what a financial newspaper says every day; the
+          The heaviest stems are what a financial newspaper says every day. The
           longest posting list belongs to
           <span class="stem" data-stat="max_posting_term">&mdash;</span>, in
-          <span data-stat="max_posting_df|int">&mdash;</span> articles.
+          <span data-stat="max_posting_df|int">&mdash;</span> articles. The
+          course stopword list keeps honorifics, so
+          <span class="stem">mr</span> survives the filter and sits at the top
+          of the frequency table, ahead of every word about money.
         </p>
         <div
           class="fig"
@@ -231,11 +274,26 @@
           data-chart="topterms"
           style="--fig-h: 620px"
         ></div>
+        <p>
+          Counting words says what the collection is made of. It says nothing
+          about whether the engine puts the right article in front of a reader
+          who asks a question, and that needs someone's opinion about which
+          articles answer which questions.
+        </p>
       </section>
 
       <section id="eval">
-        <span class="kicker">Section three</span>
         <h2>Does it find the right articles?</h2>
+        <p>
+          Measuring a search engine takes three things: a set of questions, a
+          ranking for each one, and a human judgment about which articles
+          answer it. TREC supplies all three. Assessors at NIST read a pooled
+          sample of what the search systems of the day returned for each topic
+          and marked each article relevant or not. Those judgments were made
+          over Financial Times files that run from 1991 to 1994, and only the
+          1991 files are here, so a topic whose relevant articles were printed
+          in a later year cannot be answered from this collection at all.
+        </p>
         <p>
           The NIST Robust 2004 judgments cover this collection, and filtered to
           the FT 1991 slice they leave
@@ -245,8 +303,21 @@
           <span data-stat="n_rel_total|int">&mdash;</span> relevant
           article-topic pairs across
           <span data-stat="n_judged_docs|int">&mdash;</span> judged articles.
-          Every mean below carries a percentile bootstrap interval over those
-          topics.
+          Topics with nothing relevant in the slice are dropped rather than
+          scored as zero, because a zero there measures the slice and not the
+          engine. Every mean below carries a percentile bootstrap interval over
+          the topics that remain.
+        </p>
+        <p>
+          Two conventions decide what those means are worth. An article no
+          assessor ever looked at counts as not relevant, which is what TREC
+          does, and which can only push a score down. So every number here is a
+          lower bound. The second convention is to say how far down: the judged
+          share of the top ten, the fraction of each ranking that any assessor
+          saw at all, is about
+          <span data-stat="judged10_bm25_title|2">&mdash;</span> for BM25.
+          Roughly half of what the engine returns is being scored against a
+          blank.
         </p>
         <div
           class="fig"
@@ -259,8 +330,13 @@
           <span data-stat="map_bm25_title|3">&mdash;</span> against
           <span data-stat="map_tfidf_raw_title|3">&mdash;</span> for the
           weighting the course submitted, a paired difference of
-          <span data-stat="diff_bm25_raw|signed">&mdash;</span>. A mean hides
-          how uneven that is from topic to topic.
+          <span data-stat="diff_bm25_raw|signed">&mdash;</span> with an interval
+          of <span data-stat="diff_bm25_raw_lo|signed">&mdash;</span> to
+          <span data-stat="diff_bm25_raw_hi|signed">&mdash;</span>. The log-tf
+          variant, the usual textbook fix to the course weighting, lands at
+          <span data-stat="map_tfidf_log_title|3">&mdash;</span> on titles,
+          slightly below the weighting it was meant to improve. A mean hides
+          how uneven all of this is from topic to topic.
         </p>
         <div
           class="fig"
@@ -268,12 +344,28 @@
           data-chart="apstrip"
           style="--fig-h: 420px"
         ></div>
+        <p>
+          The floor is crowded. A handful of topics score zero under every
+          ranker, and
+          <span data-stat="n_single_rel_topics|int">&mdash;</span> of the
+          evaluable topics have exactly one relevant article, so their score is
+          one divided by the rank of that article and nothing in between. Means
+          over a distribution like that move for reasons that have little to do
+          with the weighting, which is why the comparison is run topic by topic
+          instead.
+        </p>
         <div
           class="fig"
           id="fig-paired"
           data-chart="paired"
           style="--fig-h: 460px"
         ></div>
+        <p>
+          Counting topics won and lost ignores where in the ranking the gain
+          happened. A precision-recall curve asks that directly: as you walk
+          down the list and pick up more of the relevant articles, what share
+          of what you have read so far was worth reading.
+        </p>
         <div
           class="fig"
           id="fig-prcurves"
@@ -281,11 +373,16 @@
           style="--fig-h: 440px"
         ></div>
         <p>
-          Two more questions the course version asked and never answered: does a
-          longer query help, and what do stemming and stopwording actually buy?
-          The parameter grid at the end is tuned on the same
-          <span data-stat="n_topics_eval|int">&mdash;</span> topics it is scored
-          on, which is stated here rather than hidden.
+          Two more questions the course version asked and never answered. The
+          first is whether a longer query helps. Each TREC topic carries a
+          short title, a sentence of description and a paragraph of narrative,
+          so the same engine can be run on all three. Adding the description
+          moves BM25's mean by
+          <span data-stat="diff_desc_title|signed">&mdash;</span>, with an
+          interval that straddles zero. Adding the narrative as well moves it by
+          <span data-stat="diff_narr_title|signed">&mdash;</span>, and the lower
+          bound of that interval sits a hair above zero, so it is compatible
+          with no effect and must not be read as a clear win.
         </p>
         <div
           class="fig"
@@ -293,12 +390,37 @@
           data-chart="fields"
           style="--fig-h: 440px"
         ></div>
+        <p>
+          The caveat goes first for the next chart, because it is larger than
+          the finding. The parameter grid is tuned on the same
+          <span data-stat="n_topics_eval|int">&mdash;</span> topics it is scored
+          on, so its best cell is a ceiling for this slice rather than a setting
+          that would carry anywhere else. With that said, the best cell reaches
+          <span data-stat="grid_best_map|3">&mdash;</span> against
+          <span data-stat="grid_default_map|3">&mdash;</span> at the published
+          defaults, and it gets there by switching length normalisation off
+          entirely. That swing is larger than BM25's whole advantage over the
+          course weighting, which is the tell: the surface is fitting this
+          month of short, similar articles, not finding a better parameter.
+        </p>
         <div
           class="fig"
           id="fig-grid"
           data-chart="grid"
           style="--fig-h: 480px"
         ></div>
+        <p>
+          The last question is what the text rules buy once retrieval is what
+          you are measuring. Stemming moves the mean by
+          <span data-stat="diff_stem_nostem|signed">&mdash;</span> and removing
+          stopwords by
+          <span data-stat="diff_stop_nostop|signed">&mdash;</span>, and both
+          intervals include zero, so neither is separable from noise at this
+          number of topics. That is not an argument for dropping them. They
+          still shrink the vocabulary and the index by the amounts the first two
+          sections measured, and they do it without costing anything the
+          evaluation can detect.
+        </p>
         <div
           class="fig"
           id="fig-treatments"
@@ -308,7 +430,6 @@
       </section>
 
       <section id="changes">
-        <span class="kicker">Section four</span>
         <h2>What changed since the course version</h2>
         <p>
           The submitted project ran, but it was never scored. Its output carried
@@ -318,10 +439,49 @@
           <span data-stat="n_topics_eval|int">&mdash;</span> evaluable topics
           above are the result.
         </p>
+        <ul class="limits">
+          <li>
+            <strong>The run file carries document numbers.</strong> The course
+            version wrote its own internal identifier for each article, which
+            no scoring program can match against a judgment file. Writing the
+            TREC document number instead is the change that made every number
+            on this page possible.
+          </li>
+          <li>
+            <strong>Two more weightings sit beside the course's.</strong> A
+            log-weighted term frequency and BM25 run against the same index as
+            the submitted tf-idf cosine. The course weighting is kept exactly
+            as it was, raw term count times inverse document frequency, so the
+            comparison has a real baseline rather than a straw one.
+          </li>
+          <li>
+            <strong>The evaluation is actually run.</strong> Every ranker is
+            scored over the
+            <span data-stat="n_topics_eval|int">&mdash;</span> evaluable topics
+            on average precision, precision in the top ten, nDCG, recall and the
+            judged share, and every mean and every paired difference carries a
+            percentile bootstrap interval over topics. The course reports
+            described precision and recall without computing either.
+          </li>
+          <li>
+            <strong>One stemmer in two languages, both tested.</strong> The
+            Porter stemmer is implemented in Python for the pipeline and in
+            TypeScript for the browser, and both are checked word for word
+            against Martin Porter's official vocabulary file. A second test
+            checks the browser's top ten against the pipeline's for all
+            <span data-stat="n_topics_all|int">&mdash;</span> topic titles, so
+            the search box above cannot quietly rank differently from the charts
+            below it.
+          </li>
+        </ul>
+        <p>
+          The original course notebooks are kept unchanged under
+          <code>course/</code> in the repository, so the before and the after
+          can be read side by side.
+        </p>
       </section>
 
       <section id="limits">
-        <span class="kicker">Section five</span>
         <h2>What this cannot tell you</h2>
         <p>
           Each of these applies to every number above it. The judgments see
@@ -332,6 +492,75 @@
           evaluable topics have exactly one relevant article, so one ranking
           decision moves such a topic's score from zero to one.
         </p>
+        <ul class="limits">
+          <li>
+            <strong>This is a thin slice of the collection.</strong> The
+            judgments were made over Financial Times files running from 1991 to
+            1994, and only the 1991 month is here. A topic answered entirely in
+            another year scores zero, and that zero says nothing about the
+            engine.
+          </li>
+          <li>
+            <strong>Unjudged counts as not relevant.</strong> An article no
+            assessor opened is scored as a miss, which is the TREC convention
+            and can only push a score down. Every mean here is a lower bound,
+            and how loose a bound it is cannot be known from inside the data.
+          </li>
+          <li>
+            <strong>Many topics rest on a single article.</strong> For
+            <span data-stat="n_single_rel_topics|int">&mdash;</span> of the
+            evaluable topics, average precision is one divided by the rank of
+            one article. Those scores jump in large steps, and a mean over them
+            is noisier than its interval alone suggests.
+          </li>
+          <li>
+            <strong>The parameter grid is tuned on the test set.</strong> It was
+            swept and scored on the same topics, so its best cell is the best
+            fit to this slice. It is shown because the shape of the surface is
+            informative, not because the winning cell is a setting to adopt.
+          </li>
+          <li>
+            <strong>A query is a bag of stems.</strong> There is no phrase
+            matching, no proximity, no query expansion and no relevance
+            feedback. One TREC topic asks about the British Chunnel, a word this
+            newspaper never printed, because in 1991 it wrote "the Channel
+            tunnel". That topic scores near zero, and no amount of reweighting
+            would have helped it.
+          </li>
+          <li>
+            <strong>The stopword list is the course's.</strong> It is used
+            unchanged, honorifics and all, because the subject of the rebuild is
+            the course's pipeline. Nothing here tests whether a different list
+            would rank better.
+          </li>
+          <li>
+            <strong>The Porter stemmer makes mistakes in both directions.</strong>
+            It merges words that mean different things and leaves apart words
+            that mean the same thing. It is the original algorithm, matched to
+            its author's own test vectors, and its errors are inside every
+            number above.
+          </li>
+          <li>
+            <strong>The subject is English financial news from 1991.</strong>
+            Vocabulary growth, term frequencies and the value of stemming all
+            depend on the kind of text being read. Nothing here transfers by
+            default to another language, another domain or text written after
+            the web.
+          </li>
+          <li>
+            <strong>No claim of statistical reliability is made.</strong> Every
+            comparison is a mean with a percentile bootstrap interval over
+            topics. Where an interval includes zero, or clears it by a hair, the
+            honest reading is that the data does not separate the two, and the
+            page says so in each place it happens.
+          </li>
+          <li>
+            <strong>This compares weightings, not engines.</strong> The question
+            asked throughout is which term weighting finds more of the right
+            articles inside one small engine. It is not a comparison against a
+            modern retrieval system, and it should not be read as one.
+          </li>
+        </ul>
       </section>
     </main>
 

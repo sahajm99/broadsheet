@@ -158,16 +158,6 @@ export function initSearch(
   const shell = findShell();
   if (!shell) return null;
 
-  // "Chunnel" is a word this corpus never uses, so the chip that shipped with
-  // the shell would have demonstrated an empty result. The tunnel itself is
-  // all over the 1991 file.
-  for (const chip of document.querySelectorAll<HTMLButtonElement>(
-    '.chip[data-q="Chunnel"]',
-  )) {
-    chip.dataset.q = "Channel tunnel";
-    chip.textContent = "Channel tunnel";
-  }
-
   const run = (): void => {
     const query = shell.input.value.trim();
     // Focus stays where the reader is typing, whatever the outcome.

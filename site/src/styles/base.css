@@ -78,21 +78,6 @@ kbd,
   font-variant-numeric: tabular-nums;
 }
 
-/* A section kicker: small mono capitals over a hairline, the closest this
-   page comes to a masthead rule. */
-.kicker {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  border-top: 1px solid var(--rule);
-  padding-top: var(--space-2);
-  margin: 0 0 var(--space-3);
-  display: block;
-}
-
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
