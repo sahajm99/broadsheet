@@ -158,14 +158,17 @@
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--muted);
+  margin: 0;
 }
 
 .result-headline {
+  display: block;
   font-size: 1.0625rem;
   font-weight: 600;
   color: var(--ink);
   margin: var(--space-1) 0;
   max-width: 60ch;
+  text-wrap: pretty;
 }
 
 .result-meta {
@@ -181,6 +184,93 @@
   color: var(--accent);
 }
 
+/* The explain panel: the arithmetic of one ranking, closed by default so the
+   list still reads as a list, and identical in shape to the table the Python
+   scorer writes (W1). */
+.result-why {
+  margin-top: var(--space-3);
+  font-size: 0.8125rem;
+}
+
+.result-why summary {
+  color: var(--ink-2);
+  cursor: pointer;
+  width: fit-content;
+}
+
+.result-why summary:hover,
+.result-why[open] summary {
+  color: var(--accent);
+}
+
+.result-why-body {
+  margin-top: var(--space-3);
+  overflow-x: auto;
+}
+
+.explain-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 34rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.explain-table caption {
+  text-align: left;
+  color: var(--muted);
+  padding-bottom: var(--space-2);
+  max-width: 60ch;
+}
+
+.explain-table th,
+.explain-table td {
+  border-bottom: 1px solid var(--rule);
+  padding: var(--space-2) var(--space-4) var(--space-2) 0;
+  text-align: left;
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+.explain-table thead th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.explain-table .num {
+  text-align: right;
+  padding-right: var(--space-5);
+  font-family: var(--font-mono);
+}
+
+.explain-table thead .num {
+  font-family: var(--font-ui);
+}
+
+.explain-table .stem {
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+
+.explain-table .share {
+  color: var(--accent);
+}
+
+.explain-note {
+  color: var(--muted);
+  margin: var(--space-3) 0 0;
+  max-width: var(--prose-width);
+}
+
+.q-extra {
+  margin-top: var(--space-4);
+  max-width: var(--fig-width);
+  font-size: 0.8125rem;
+}
+
+.q-extra:empty {
+  margin: 0;
+}
+
 @media (max-width: 640px) {
   .q-form {
     gap: var(--space-3);
@@ -192,5 +282,19 @@
 
   .q-submit {
     flex: 1 1 auto;
+  }
+
+  /* The arithmetic is the point of the panel, so on a phone the table gives
+     up its comfortable column widths rather than pushing idf and the share of
+     the score off the right-hand edge into a scroller nobody notices. */
+  .explain-table {
+    min-width: 0;
+    font-size: 0.75rem;
+  }
+
+  .explain-table th,
+  .explain-table td,
+  .explain-table .num {
+    padding-right: var(--space-2);
   }
 }

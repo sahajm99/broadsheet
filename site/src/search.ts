@@ -1,11 +1,26 @@
 /**
- * The search hero's shell. The form, the ranker switch and the example chips
- * are wired to each other and to the status line here; the engine that turns
- * a query into results arrives in the next task, and until it does a submit
- * says so rather than doing nothing.
+ * The search hero: the form, the ranker switch, the example chips, and the
+ * engine behind them.
+ *
+ * Everything here happens in the visitor's browser. The first query fetches
+ * one gzipped index (W2), inflates it, and from then on every ranking is
+ * local: no server, no API, no article text ever leaving the pipeline's
+ * citation lines. `site/tests/parity.test.ts` checks that this code ranks all
+ * 243 answerable TREC topics exactly as `pipeline/rank.py` does (W3).
  */
 
-const PENDING = "Search arrives in the next task";
+import { loadJson } from "./data.ts";
+import { loadIndex, type SearchIndex } from "./search/index.ts";
+import {
+  isRanker,
+  search,
+  type Ranker,
+  type SearchResult,
+} from "./search/rank.ts";
+import { clearExtra, renderError, renderResults } from "./search/ui.ts";
+import type { Meta } from "./types.ts";
+
+const TOP_K = 10;
 
 export interface SearchShell {
   form: HTMLFormElement;
@@ -35,8 +50,107 @@ export function findShell(): SearchShell | null {
 }
 
 /**
- * Wire the hero. `onSearch` is what Task 7 supplies; without it every path
- * that would run a query reports that the engine is not here yet.
+ * The index is fetched at most once per page, and a second query arriving
+ * while the first is still downloading waits on the same promise rather than
+ * starting a second 1.25 MB download.
+ */
+let pending: Promise<SearchIndex> | null = null;
+let index: SearchIndex | null = null;
+
+function ensureIndex(): Promise<SearchIndex> {
+  if (index) return Promise.resolve(index);
+  pending ??= loadIndex()
+    .then((loaded) => {
+      index = loaded;
+      return loaded;
+    })
+    .catch((err: unknown) => {
+      // A failed fetch must not poison every later attempt, or the retry
+      // button would be unable to succeed.
+      pending = null;
+      throw err;
+    });
+  return pending;
+}
+
+/**
+ * How big the download is, in MB, for the line the reader sees before paying
+ * for it. `claims.json` has already filled the `.index-note` span by the time
+ * anyone can type, so the usual path costs no request; `meta.json` is the
+ * fallback for a page whose claims failed to load.
+ */
+async function indexSizeMb(): Promise<string | null> {
+  const printed = document
+    .querySelector<HTMLElement>('.index-note [data-stat^="index_gz_mb"]')
+    ?.textContent?.trim();
+  if (printed && /^[\d.]+$/.test(printed)) return printed;
+  try {
+    const meta = await loadJson<Meta>("meta.json");
+    return meta.index_gz_mb.toFixed(1);
+  } catch {
+    return null;
+  }
+}
+
+function rankerOf(shell: SearchShell): Ranker {
+  return isRanker(shell.ranker.value) ? shell.ranker.value : "bm25";
+}
+
+/**
+ * The one line the reader gets about what just happened. A query of nothing
+ * but stopwords is a different failure from a query of real words the corpus
+ * has never printed, and saying so is cheaper than leaving them to guess.
+ */
+function statusFor(
+  result: SearchResult,
+  query: string,
+  ms: number,
+): string {
+  if (result.terms.length === 0) {
+    return "Every word in that query is a stopword, so there is nothing to look up.";
+  }
+  if (result.hits.length === 0) {
+    return "No article contains any of these stems.";
+  }
+  const n = result.total.toLocaleString("en-US");
+  return `${n} articles ranked in ${ms.toFixed(0)} ms for “${query}”`;
+}
+
+async function runQuery(shell: SearchShell, query: string): Promise<void> {
+  const ranker = rankerOf(shell);
+  clearExtra(shell.results);
+
+  if (!index) {
+    const mb = await indexSizeMb();
+    setStatus(
+      shell,
+      mb ? `Loading the index (${mb} MB) …` : "Loading the index …",
+    );
+  }
+
+  let ready: SearchIndex;
+  try {
+    ready = await ensureIndex();
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    setStatus(shell, "The index could not be loaded.");
+    renderError(shell.results, message, () => {
+      void runQuery(shell, query);
+    });
+    return;
+  }
+
+  const started = performance.now();
+  const result = search(ready, query, ranker, TOP_K);
+  const ms = performance.now() - started;
+
+  renderResults(shell.results, result);
+  setStatus(shell, statusFor(result, query, ms));
+}
+
+/**
+ * Wire the hero. `onSearch` replaces the built-in engine, which is only ever
+ * useful to a test; the page calls `initSearch()` and gets the real thing.
  */
 export function initSearch(
   onSearch?: (query: string, ranker: string) => void,
@@ -44,18 +158,29 @@ export function initSearch(
   const shell = findShell();
   if (!shell) return null;
 
+  // "Chunnel" is a word this corpus never uses, so the chip that shipped with
+  // the shell would have demonstrated an empty result. The tunnel itself is
+  // all over the 1991 file.
+  for (const chip of document.querySelectorAll<HTMLButtonElement>(
+    '.chip[data-q="Chunnel"]',
+  )) {
+    chip.dataset.q = "Channel tunnel";
+    chip.textContent = "Channel tunnel";
+  }
+
   const run = (): void => {
     const query = shell.input.value.trim();
+    // Focus stays where the reader is typing, whatever the outcome.
+    shell.input.focus();
     if (!query) {
       setStatus(shell, "Type a query first.");
-      shell.input.focus();
       return;
     }
-    if (!onSearch) {
-      setStatus(shell, PENDING);
+    if (onSearch) {
+      onSearch(query, shell.ranker.value);
       return;
     }
-    onSearch(query, shell.ranker.value);
+    void runQuery(shell, query);
   };
 
   shell.form.addEventListener("submit", (e) => {
@@ -72,7 +197,8 @@ export function initSearch(
     });
   }
 
-  // Changing the weighting re-runs the query that is already on screen.
+  // Changing the weighting re-runs the query that is already on screen, which
+  // is the only way to see what the weighting actually does.
   shell.ranker.addEventListener("change", () => {
     if (shell.results.childElementCount > 0 || shell.input.value.trim()) run();
   });
