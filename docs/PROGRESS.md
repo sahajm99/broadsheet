@@ -11,3 +11,33 @@
 - Wrote `docs/DESIGN.md`, `docs/DECISIONS.md`, the plan, copied the corpus to the
   git-ignored `data/raw/ft911/` with `SHA256SUMS`, committed the TREC files,
   stopwords, Porter golden vectors and the course notebooks for reference.
+
+## 2026-09-12: Milestone 1, pipeline complete
+
+- `uv run pytest`: 218 passed in about 0.6 s. Porter matches all 23,531 golden words.
+- `uv run python -m pipeline` writes 12 JSON files (largest well under 200 KB) plus
+  `search/index.json.gz` (1,249,317 bytes) in 18 s and is byte-identical across runs
+  except `generated_at`.
+- Anchors: 5,368 documents, 1991-04-15 to 1991-05-14; 32,645 stems from 47,506 word
+  forms; 71 evaluable topics, 186 relevant pairs, 1,844 judged documents, 36 topics
+  with a single relevant document; BM25 title MAP 0.3696 (0.2887 to 0.4547) against
+  0.2912 for the course weighting, paired difference +0.0784 (+0.0167 to +0.1406),
+  40 wins, 17 losses, 14 ties; grid best 0.4167 at k1 1.5, b 0.0 (tuned on the scored
+  topics); judged@10 0.47.
+- Tasks 1 to 4 reviewed by a second agent each; fixes: multi-TEXT join and loud
+  failure on malformed records, entity unescape test, duplicate-docno guard.
+  Ledger: `.superpowers/sdd/2026-09-12-broadsheet/progress.md`.
+
+## 2026-09-12: Milestone 2, site live with search and charts
+
+- Skeleton, theme and CI (commit `5bd15fe`), CI green on the first run and Pages
+  serving 200 at https://sahajm99.github.io/broadsheet/.
+- Browser search (commit `ac52a99`): TypeScript Porter with 0 golden mismatches,
+  BM25 and tf-idf cosine top-10 identical to the pipeline for all 243 topic titles
+  with results, explain panel, about 1 ms per query after a 1.25 MB index load.
+- Twelve charts (commits `79454aa`, `676b57d`) screenshotted in light, dark and at
+  400 px by their implementers; no console errors.
+- Live QA on the deployed page: 12 of 12 figures render, 0 error boxes, 0 unfilled
+  `data-stat` spans, "junk bonds" ranks 314 articles in 1 ms, no console errors.
+- Portfolio: commit `f73fa7e` on `sahajm99/portfolio` adds the Broadsheet card
+  (category `data-engineering`, status live); Vercel deployment READY.
