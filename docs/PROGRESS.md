@@ -41,3 +41,20 @@
   `data-stat` spans, "junk bonds" ranks 314 articles in 1 ms, no console errors.
 - Portfolio: commit `f73fa7e` on `sahajm99/portfolio` adds the Broadsheet card
   (category `data-engineering`, status live); Vercel deployment READY.
+
+## 2026-09-12: Milestone 3, complete and verified
+
+- Narrative for all six sections, the four-item "what changed" list, a ten-item
+  limits list, the kicker chrome removed, the Channel tunnel chip in the markup,
+  README final (commit `4e66ac6`); executed notebook with a leak and error check
+  (commit `b1dce14`). CI green: https://github.com/sahajm99/broadsheet/actions/runs/34712252832.
+- `uv run pytest`: 226 passed. `npm test`: 18 passed (Porter golden, tokenizer,
+  browser top-10 parity for both rankers). `npm run typecheck` and `npm run build` clean.
+- Live QA on https://sahajm99.github.io/broadsheet/ after the final deploy: 12 of 12
+  figures render, 0 error boxes, 0 unfilled `data-stat` spans, 0 kickers, 4 change
+  items, 10 limit items, no console errors at 1280 and 400 px; full-page screenshots
+  in `.superpowers/sdd/2026-09-12-broadsheet/shots/live-*.png`.
+- Not run in CI by design: the pipeline and the notebook (corpus not redistributable).
+  A pipeline change requires a local rerun of both and a commit of the outputs.
+- Per the user's standing instruction to skip thoroughness, only Tasks 1 to 4 were
+  reviewed by a second agent; site tasks got controller screenshots and live QA.
