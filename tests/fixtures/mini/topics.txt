@@ -1,0 +1,28 @@
+<top>
+
+<num> Number: 1 
+<title> jet   engine 
+
+<desc> Description: 
+Documents about
+jets.
+
+<narr> Narrative: 
+Any jet.
+
+</top>
+
+
+<top>
+
+<num> Number: 2
+
+<title>
+bank money
+
+<desc>
+Documents about banks.
+
+<narr>
+Any bank.
+</top>
