@@ -19,27 +19,23 @@ import type { Claims } from "./types.ts";
 
 type Render = (container: HTMLElement) => Promise<void>;
 
-/** Until a chart task lands, every figure mounts the same reserved skeleton. */
-const skeleton: Render = (c) =>
-  import("./charts/placeholder.ts").then((m) => m.render(c));
-
 /**
  * One entry per `data-chart` name in index.html, and one dynamic import per
  * entry, so Plotly loads only when a figure that needs it scrolls into view.
  */
 const CHARTS: Record<string, Render | undefined> = {
-  funnel: skeleton,
-  heaps: skeleton,
-  zipf: skeleton,
-  lengths: skeleton,
-  topterms: skeleton,
-  rankers: skeleton,
-  apstrip: skeleton,
-  paired: skeleton,
-  prcurves: skeleton,
-  fields: skeleton,
-  grid: skeleton,
-  treatments: skeleton,
+  funnel: (c) => import("./charts/funnel.ts").then((m) => m.render(c)),
+  heaps: (c) => import("./charts/heaps.ts").then((m) => m.render(c)),
+  zipf: (c) => import("./charts/zipf.ts").then((m) => m.render(c)),
+  lengths: (c) => import("./charts/lengths.ts").then((m) => m.render(c)),
+  topterms: (c) => import("./charts/topterms.ts").then((m) => m.render(c)),
+  rankers: (c) => import("./charts/rankers.ts").then((m) => m.render(c)),
+  apstrip: (c) => import("./charts/apstrip.ts").then((m) => m.render(c)),
+  paired: (c) => import("./charts/paired.ts").then((m) => m.render(c)),
+  prcurves: (c) => import("./charts/prcurves.ts").then((m) => m.render(c)),
+  fields: (c) => import("./charts/fields.ts").then((m) => m.render(c)),
+  grid: (c) => import("./charts/grid.ts").then((m) => m.render(c)),
+  treatments: (c) => import("./charts/treatments.ts").then((m) => m.render(c)),
 };
 
 const NOTICE_ID = "claims-notice";
