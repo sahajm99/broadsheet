@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Broadsheet: a search engine over 5,368 FT articles from 1991</title>
+    <meta
+      name="description"
+      content="A search engine built from scratch over 5,368 Financial Times articles from 1991, evaluated the way TREC evaluates search: type a query, see the ranking, and see the arithmetic behind every score."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e6b6b'/%3E%3Cg fill='%23f7e9e1'%3E%3Crect x='7' y='8' width='18' height='3'/%3E%3Crect x='7' y='14.5' width='13' height='3'/%3E%3Crect x='7' y='21' width='8' height='3'/%3E%3C/g%3E%3C/svg%3E"
+    />
+    <script>
+      // Paint the chosen theme before first paint, so there is no flash, and
+      // put the toggle in the state that matches it, so its label is never a
+      // lie about what the button will do.
+      (function () {
+        function prefersDark() {
+          try {
+            return window.matchMedia("(prefers-color-scheme: dark)").matches;
+          } catch (e) {
+            return false;
+          }
+        }
+        var t;
+        try {
+          t = localStorage.getItem("broadsheet-theme");
+        } catch (e) {
+          /* private mode: fall back to the media query */
+        }
+        if (t !== "light" && t !== "dark") t = prefersDark() ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+        document.addEventListener("DOMContentLoaded", function () {
+          var btn = document.getElementById("theme-toggle");
+          if (!btn) return;
+          btn.setAttribute("aria-pressed", String(t === "dark"));
+          btn.setAttribute(
+            "aria-label",
+            t === "dark"
+              ? "Dark theme, switch to light"
+              : "Light theme, switch to dark",
+          );
+        });
+      })();
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#search">Skip to the search box</a>
+
+    <header class="page-header">
+      <p class="site-name"><a href="#search">Broadsheet</a></p>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-pressed="false"
+        aria-label="Light theme, switch to dark"
+      >
+        <span class="toggle-light">Dark</span>
+        <span class="toggle-dark">Light</span>
+      </button>
+    </header>
+
+    <nav class="section-nav" aria-label="Sections">
+      <ul>
+        <li><a href="#search">Search</a></li>
+        <li><a href="#terms">From text to terms</a></li>
+        <li><a href="#index">The index</a></li>
+        <li><a href="#eval">Does it find them?</a></li>
+        <li><a href="#changes">What changed</a></li>
+        <li><a href="#limits">Limits</a></li>
+      </ul>
+    </nav>
+
+    <noscript>
+      <div class="noscript">
+        <p>
+          The written argument below reads without JavaScript. The search box
+          and the charts do not: the engine runs entirely in the browser, and
+          every number quoted in the text is filled in from the same JSON files
+          the charts use, so with scripts off you will see a placeholder where
+          each number belongs.
+        </p>
+      </div>
+    </noscript>
+
+    <main>
+      <section id="search">
+        <h1>Broadsheet</h1>
+        <p class="hero-deck">
+          A search engine built from scratch over
+          <span data-stat="n_docs|int">&mdash;</span> Financial Times articles
+          from 1991, and then measured the way TREC measures search.
+        </p>
+
+        <form id="q-form" class="q-form" role="search">
+          <span class="q-field">
+            <span class="q-mark" aria-hidden="true">&gt;</span>
+            <input
+              id="q"
+              name="q"
+              type="search"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Try a word or a phrase"
+              aria-label="Search 5,368 Financial Times articles from 1991"
+            />
+          </span>
+          <span class="q-ranker">
+            <label for="ranker">Weighting</label>
+            <select id="ranker" name="ranker">
+              <option value="bm25">BM25</option>
+              <option value="tfidf_raw">tf-idf cosine (course)</option>
+            </select>
+          </span>
+          <button class="q-submit" type="submit">Search</button>
+        </form>
+
+        <ul class="chips">
+          <li>
+            <button class="chip" type="button" data-q="Chunnel">Chunnel</button>
+          </li>
+          <li>
+            <button class="chip" type="button" data-q="Antarctica exploration">
+              Antarctica exploration
+            </button>
+          </li>
+          <li>
+            <button class="chip" type="button" data-q="journalist risks">
+              journalist risks
+            </button>
+          </li>
+          <li>
+            <button class="chip" type="button" data-q="mutual fund">
+              mutual fund
+            </button>
+          </li>
+          <li>
+            <button class="chip" type="button" data-q="Gorbachev">
+              Gorbachev
+            </button>
+          </li>
+          <li>
+            <button class="chip" type="button" data-q="junk bonds">
+              junk bonds
+            </button>
+          </li>
+        </ul>
+
+        <p class="index-note">
+          The index loads on the first search:
+          <span data-stat="index_gz_mb|1">&mdash;</span> MB of stems, posting
+          lists and headlines, fetched once and ranked in the browser. No
+          article text is served.
+        </p>
+
+        <p id="q-status" role="status"></p>
+        <ol id="results"></ol>
+      </section>
+
+      <section id="terms">
+        <span class="kicker">Section one</span>
+        <h2>From text to terms</h2>
+        <p>
+          Before anything can be searched it has to be cut into terms. The
+          course pipeline lowercases, splits on every non-alphanumeric
+          character, throws away any token containing a digit, drops
+          <span data-stat="stopword_token_share_pct|pctpt">&mdash;</span> of the
+          remaining tokens as stopwords, and folds what is left with the Porter
+          stemmer: <span data-stat="n_types_nostop|int">&mdash;</span> word
+          forms become <span data-stat="n_types_stem|int">&mdash;</span> stems.
+        </p>
+        <div
+          class="fig"
+          id="fig-funnel"
+          data-chart="funnel"
+          style="--fig-h: 420px"
+        ></div>
+        <p>
+          Vocabulary keeps growing as text arrives, at roughly
+          tokens<sup><span data-stat="heaps_beta|2">&mdash;</span></sup>, and
+          frequency falls away as roughly one over rank, with a fitted slope of
+          <span data-stat="zipf_slope|2">&mdash;</span>.
+        </p>
+        <div
+          class="fig"
+          id="fig-heaps"
+          data-chart="heaps"
+          style="--fig-h: 440px"
+        ></div>
+        <div
+          class="fig"
+          id="fig-zipf"
+          data-chart="zipf"
+          style="--fig-h: 460px"
+        ></div>
+      </section>
+
+      <section id="index">
+        <span class="kicker">Section two</span>
+        <h2>The index</h2>
+        <p>
+          The inverted index holds
+          <span data-stat="n_postings|int">&mdash;</span> postings over
+          <span data-stat="n_terms_index|int">&mdash;</span> stems, and
+          <span data-stat="df1_share_pct|pctpt">&mdash;</span> of those stems
+          occur in exactly one article. The median article is
+          <span data-stat="median_doc_len|int">&mdash;</span> terms long once
+          the stopwords are gone.
+        </p>
+        <div
+          class="fig"
+          id="fig-lengths"
+          data-chart="lengths"
+          style="--fig-h: 440px"
+        ></div>
+        <p>
+          The heaviest stems are what a financial newspaper says every day; the
+          longest posting list belongs to
+          <span class="stem" data-stat="max_posting_term">&mdash;</span>, in
+          <span data-stat="max_posting_df|int">&mdash;</span> articles.
+        </p>
+        <div
+          class="fig"
+          id="fig-topterms"
+          data-chart="topterms"
+          style="--fig-h: 620px"
+        ></div>
+      </section>
+
+      <section id="eval">
+        <span class="kicker">Section three</span>
+        <h2>Does it find the right articles?</h2>
+        <p>
+          The NIST Robust 2004 judgments cover this collection, and filtered to
+          the FT 1991 slice they leave
+          <span data-stat="n_topics_eval|int">&mdash;</span> topics with at
+          least one relevant article, out of
+          <span data-stat="n_topics_all|int">&mdash;</span> topics in all, with
+          <span data-stat="n_rel_total|int">&mdash;</span> relevant
+          article-topic pairs across
+          <span data-stat="n_judged_docs|int">&mdash;</span> judged articles.
+          Every mean below carries a percentile bootstrap interval over those
+          topics.
+        </p>
+        <div
+          class="fig"
+          id="fig-rankers"
+          data-chart="rankers"
+          style="--fig-h: 420px"
+        ></div>
+        <p>
+          BM25 reaches a mean average precision of
+          <span data-stat="map_bm25_title|3">&mdash;</span> against
+          <span data-stat="map_tfidf_raw_title|3">&mdash;</span> for the
+          weighting the course submitted, a paired difference of
+          <span data-stat="diff_bm25_raw|signed">&mdash;</span>. A mean hides
+          how uneven that is from topic to topic.
+        </p>
+        <div
+          class="fig"
+          id="fig-apstrip"
+          data-chart="apstrip"
+          style="--fig-h: 420px"
+        ></div>
+        <div
+          class="fig"
+          id="fig-paired"
+          data-chart="paired"
+          style="--fig-h: 460px"
+        ></div>
+        <div
+          class="fig"
+          id="fig-prcurves"
+          data-chart="prcurves"
+          style="--fig-h: 440px"
+        ></div>
+        <p>
+          Two more questions the course version asked and never answered: does a
+          longer query help, and what do stemming and stopwording actually buy?
+          The parameter grid at the end is tuned on the same
+          <span data-stat="n_topics_eval|int">&mdash;</span> topics it is scored
+          on, which is stated here rather than hidden.
+        </p>
+        <div
+          class="fig"
+          id="fig-fields"
+          data-chart="fields"
+          style="--fig-h: 440px"
+        ></div>
+        <div
+          class="fig"
+          id="fig-grid"
+          data-chart="grid"
+          style="--fig-h: 480px"
+        ></div>
+        <div
+          class="fig"
+          id="fig-treatments"
+          data-chart="treatments"
+          style="--fig-h: 400px"
+        ></div>
+      </section>
+
+      <section id="changes">
+        <span class="kicker">Section four</span>
+        <h2>What changed since the course version</h2>
+        <p>
+          The submitted project ran, but it was never scored. Its output carried
+          internal identifiers instead of document numbers, so it could not be
+          compared against a judgment file at all, and it weighted terms by raw
+          count. Four things changed, and the
+          <span data-stat="n_topics_eval|int">&mdash;</span> evaluable topics
+          above are the result.
+        </p>
+      </section>
+
+      <section id="limits">
+        <span class="kicker">Section five</span>
+        <h2>What this cannot tell you</h2>
+        <p>
+          Each of these applies to every number above it. The judgments see
+          <span data-stat="n_judged_docs|int">&mdash;</span> of the
+          <span data-stat="n_docs|int">&mdash;</span> articles in this
+          collection, and
+          <span data-stat="n_single_rel_topics|int">&mdash;</span> of the
+          evaluable topics have exactly one relevant article, so one ranking
+          decision moves such a topic's score from zero to one.
+        </p>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <div>
+        <p>
+          Broadsheet is written and built by Sahaj
+          (<a href="https://github.com/sahajm99">sahajm99</a>), rebuilt from a
+          CSCE 5200 Information Retrieval and Web Search project at the
+          University of North Texas.
+        </p>
+        <p>
+          Corpus: the Financial Times 1991 files of TREC disk 4, licensed to the
+          course and not redistributed here; this site serves stems, posting
+          lists, headlines and dates only. Judgments and topics: the NIST TREC
+          Robust 2004 relevance judgments, filtered to this slice.
+        </p>
+        <p>Built with Python, numpy, Vite, TypeScript and Plotly.</p>
+        <p>
+          <a href="https://github.com/sahajm99/broadsheet">Source on GitHub</a>.
+          Code under the MIT licence; the article text belongs to the Financial
+          Times and NIST.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

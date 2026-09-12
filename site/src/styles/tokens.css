@@ -1,0 +1,85 @@
+/* Design tokens. Dark is a selected palette, not an inversion of light.
+   Light mode is the FT's salmon paper; the accent is one deep teal. */
+
+:root {
+  color-scheme: light;
+
+  --surface: #f7e9e1;
+  --surface-2: #fff7f2;
+  --ink: #1b1a19;
+  --ink-2: #4a4643;
+  --muted: #7a736e;
+  --accent: #0e6b6b;
+  --accent-ink: #ffffff;
+  --rule: #e2cfc4;
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --s3: #1baf7a;
+  --s4: #eda100;
+  --seq-1: #e3f1f1;
+  --seq-2: #a9d6d6;
+  --seq-3: #5fb3b3;
+  --seq-4: #1f8a8a;
+  --seq-5: #0b4f4f;
+
+  --font-ui: "IBM Plex Sans Variable", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas,
+    monospace;
+
+  --prose-width: 70ch;
+  --fig-width: 880px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2.5rem;
+  --space-7: 4rem;
+  --radius: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --surface: #171514;
+    --surface-2: #221f1d;
+    --ink: #f2ece7;
+    --ink-2: #cfc6bf;
+    --muted: #9a908a;
+    --accent: #4fb3b3;
+    --accent-ink: #0e1a1a;
+    --rule: #3a3431;
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --seq-1: #173a3a;
+    --seq-2: #1f5c5c;
+    --seq-3: #2e8686;
+    --seq-4: #5fb3b3;
+    --seq-5: #a9d6d6;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --surface: #171514;
+  --surface-2: #221f1d;
+  --ink: #f2ece7;
+  --ink-2: #cfc6bf;
+  --muted: #9a908a;
+  --accent: #4fb3b3;
+  --accent-ink: #0e1a1a;
+  --rule: #3a3431;
+  --s1: #3987e5;
+  --s2: #d95926;
+  --s3: #199e70;
+  --s4: #c98500;
+  --seq-1: #173a3a;
+  --seq-2: #1f5c5c;
+  --seq-3: #2e8686;
+  --seq-4: #5fb3b3;
+  --seq-5: #a9d6d6;
+}

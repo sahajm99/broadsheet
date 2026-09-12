@@ -7,3 +7,4 @@ site/node_modules/
 site/dist/
 .superpowers/
 .ipynb_checkpoints/
+.gstack/

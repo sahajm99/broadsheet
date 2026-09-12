@@ -1,0 +1,60 @@
+/* A panel is a figure-sized block that is not a Plotly chart: the explain
+   panel under a search result, and anything later tasks mount beside one. */
+
+.panel {
+  margin: var(--space-5) 0 0;
+  max-width: var(--fig-width);
+  min-height: var(--fig-h, 480px);
+}
+
+.panel select {
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-size: 0.875rem;
+  padding: var(--space-2) var(--space-3);
+}
+
+/* The explain table: every matched stem with tf, df, idf and its share. */
+.explain {
+  border-left: 2px solid var(--accent);
+  padding: var(--space-2) 0 var(--space-2) var(--space-4);
+  margin: var(--space-3) 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+
+.explain table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 34rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.explain th,
+.explain td {
+  border-bottom: 1px solid var(--rule);
+  padding: var(--space-1) var(--space-4) var(--space-1) 0;
+  text-align: left;
+  font-weight: 400;
+}
+
+.explain thead th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.explain .stem,
+.explain td:not(:first-child) {
+  font-family: var(--font-mono);
+}
+
+/* A share bar behind a stem's contribution, so the split reads at a glance. */
+.explain-bar {
+  display: block;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  min-width: 1px;
+}
