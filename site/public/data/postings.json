@@ -1,0 +1,132 @@
+{
+ "schema": "postings.v1",
+ "generated_at": "2026-09-12T18:09:06Z",
+ "hist": {
+  "bins": [
+   1,
+   2,
+   3,
+   5,
+   9,
+   17,
+   33,
+   65,
+   129,
+   257,
+   513,
+   1025,
+   2049,
+   4097
+  ],
+  "counts": [
+   14389,
+   4392,
+   3848,
+   3089,
+   2331,
+   1587,
+   1059,
+   812,
+   551,
+   346,
+   190,
+   47,
+   4,
+   0
+  ]
+ },
+ "summary": {
+  "n_terms": 32645,
+  "n_postings": 672668,
+  "mean_len": 20.605544,
+  "median_len": 2.0,
+  "max_len": 3326,
+  "df1_share": 0.440772
+ },
+ "longest": [
+  {
+   "term": "year",
+   "df": 3326
+  },
+  {
+   "term": "mr",
+   "df": 2775
+  },
+  {
+   "term": "cent",
+   "df": 2453
+  },
+  {
+   "term": "compani",
+   "df": 2283
+  },
+  {
+   "term": "market",
+   "df": 2013
+  },
+  {
+   "term": "pound",
+   "df": 1994
+  },
+  {
+   "term": "yesterdai",
+   "df": 1985
+  },
+  {
+   "term": "group",
+   "df": 1865
+  },
+  {
+   "term": "time",
+   "df": 1798
+  },
+  {
+   "term": "govern",
+   "df": 1708
+  },
+  {
+   "term": "month",
+   "df": 1655
+  },
+  {
+   "term": "share",
+   "df": 1572
+  },
+  {
+   "term": "end",
+   "df": 1552
+  },
+  {
+   "term": "make",
+   "df": 1534
+  },
+  {
+   "term": "industri",
+   "df": 1500
+  },
+  {
+   "term": "busi",
+   "df": 1393
+  },
+  {
+   "term": "expect",
+   "df": 1385
+  },
+  {
+   "term": "dollar",
+   "df": 1327
+  },
+  {
+   "term": "interest",
+   "df": 1327
+  },
+  {
+   "term": "increas",
+   "df": 1317
+  }
+ ],
+ "size_bytes": {
+  "index_gz": 1249317,
+  "index_json": 4188738
+ }
+}

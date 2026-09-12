@@ -1,0 +1,1105 @@
+{
+ "schema": "vocab.v1",
+ "generated_at": "2026-09-12T18:09:03Z",
+ "funnel": [
+  {
+   "step": "raw_alpha",
+   "label": "Alphanumeric tokens",
+   "n_types": 54164,
+   "n_tokens": 2170486
+  },
+  {
+   "step": "minus_digits",
+   "label": "Tokens with digits dropped",
+   "n_types": 48010,
+   "n_tokens": 2068086
+  },
+  {
+   "step": "minus_stopwords",
+   "label": "Stopwords removed",
+   "n_types": 47506,
+   "n_tokens": 1036714
+  },
+  {
+   "step": "stemmed",
+   "label": "Porter stemmed",
+   "n_types": 32645,
+   "n_tokens": 1036714
+  }
+ ],
+ "treatments": {
+  "stem_stop": {
+   "n_types": 32645,
+   "n_tokens": 1036714
+  },
+  "nostem_stop": {
+   "n_types": 47506,
+   "n_tokens": 1036714
+  },
+  "stem_nostop": {
+   "n_types": 32929,
+   "n_tokens": 2068086
+  },
+  "nostem_nostop": {
+   "n_types": 48010,
+   "n_tokens": 2068086
+  }
+ },
+ "top_terms": [
+  {
+   "term": "mr",
+   "df": 2775,
+   "cf": 11615
+  },
+  {
+   "term": "year",
+   "df": 3326,
+   "cf": 10215
+  },
+  {
+   "term": "cent",
+   "df": 2453,
+   "cf": 9682
+  },
+  {
+   "term": "pound",
+   "df": 1994,
+   "cf": 8024
+  },
+  {
+   "term": "compani",
+   "df": 2283,
+   "cf": 7518
+  },
+  {
+   "term": "market",
+   "df": 2013,
+   "cf": 6432
+  },
+  {
+   "term": "dollar",
+   "df": 1327,
+   "cf": 5632
+  },
+  {
+   "term": "bank",
+   "df": 1229,
+   "cf": 4917
+  },
+  {
+   "term": "govern",
+   "df": 1708,
+   "cf": 4487
+  },
+  {
+   "term": "share",
+   "df": 1572,
+   "cf": 4448
+  },
+  {
+   "term": "group",
+   "df": 1865,
+   "cf": 4063
+  },
+  {
+   "term": "industri",
+   "df": 1500,
+   "cf": 3499
+  },
+  {
+   "term": "price",
+   "df": 1317,
+   "cf": 3300
+  },
+  {
+   "term": "rate",
+   "df": 1077,
+   "cf": 3218
+  },
+  {
+   "term": "busi",
+   "df": 1393,
+   "cf": 3028
+  },
+  {
+   "term": "yesterdai",
+   "df": 1985,
+   "cf": 3013
+  },
+  {
+   "term": "time",
+   "df": 1798,
+   "cf": 2987
+  },
+  {
+   "term": "manag",
+   "df": 1281,
+   "cf": 2974
+  },
+  {
+   "term": "trade",
+   "df": 1271,
+   "cf": 2933
+  },
+  {
+   "term": "uk",
+   "df": 1239,
+   "cf": 2819
+  },
+  {
+   "term": "profit",
+   "df": 1231,
+   "cf": 2777
+  },
+  {
+   "term": "month",
+   "df": 1655,
+   "cf": 2626
+  },
+  {
+   "term": "invest",
+   "df": 1136,
+   "cf": 2553
+  },
+  {
+   "term": "make",
+   "df": 1534,
+   "cf": 2461
+  },
+  {
+   "term": "product",
+   "df": 1099,
+   "cf": 2385
+  }
+ ],
+ "stem_groups": [
+  {
+   "stem": "commun",
+   "n_words": 18,
+   "words": [
+    {
+     "word": "community",
+     "cf": 756
+    },
+    {
+     "word": "communications",
+     "cf": 186
+    },
+    {
+     "word": "communication",
+     "cf": 49
+    },
+    {
+     "word": "communities",
+     "cf": 40
+    },
+    {
+     "word": "communism",
+     "cf": 29
+    },
+    {
+     "word": "communicate",
+     "cf": 13
+    },
+    {
+     "word": "communal",
+     "cf": 9
+    },
+    {
+     "word": "communes",
+     "cf": 5
+    }
+   ]
+  },
+  {
+   "stem": "gener",
+   "n_words": 17,
+   "words": [
+    {
+     "word": "general",
+     "cf": 1314
+    },
+    {
+     "word": "generally",
+     "cf": 215
+    },
+    {
+     "word": "generation",
+     "cf": 151
+    },
+    {
+     "word": "generating",
+     "cf": 74
+    },
+    {
+     "word": "generated",
+     "cf": 73
+    },
+    {
+     "word": "generous",
+     "cf": 67
+    },
+    {
+     "word": "generate",
+     "cf": 63
+    },
+    {
+     "word": "generators",
+     "cf": 58
+    }
+   ]
+  },
+  {
+   "stem": "oper",
+   "n_words": 13,
+   "words": [
+    {
+     "word": "operating",
+     "cf": 677
+    },
+    {
+     "word": "operations",
+     "cf": 622
+    },
+    {
+     "word": "operation",
+     "cf": 428
+    },
+    {
+     "word": "operate",
+     "cf": 166
+    },
+    {
+     "word": "operators",
+     "cf": 82
+    },
+    {
+     "word": "operates",
+     "cf": 76
+    },
+    {
+     "word": "operated",
+     "cf": 67
+    },
+    {
+     "word": "operator",
+     "cf": 66
+    }
+   ]
+  },
+  {
+   "stem": "origin",
+   "n_words": 12,
+   "words": [
+    {
+     "word": "original",
+     "cf": 193
+    },
+    {
+     "word": "originally",
+     "cf": 117
+    },
+    {
+     "word": "origin",
+     "cf": 31
+    },
+    {
+     "word": "origins",
+     "cf": 17
+    },
+    {
+     "word": "originated",
+     "cf": 9
+    },
+    {
+     "word": "originality",
+     "cf": 5
+    },
+    {
+     "word": "originate",
+     "cf": 5
+    },
+    {
+     "word": "originating",
+     "cf": 3
+    }
+   ]
+  },
+  {
+   "stem": "continu",
+   "n_words": 11,
+   "words": [
+    {
+     "word": "continue",
+     "cf": 511
+    },
+    {
+     "word": "continued",
+     "cf": 403
+    },
+    {
+     "word": "continuing",
+     "cf": 250
+    },
+    {
+     "word": "continues",
+     "cf": 215
+    },
+    {
+     "word": "continuous",
+     "cf": 27
+    },
+    {
+     "word": "continuation",
+     "cf": 16
+    },
+    {
+     "word": "continuity",
+     "cf": 14
+    },
+    {
+     "word": "continually",
+     "cf": 7
+    }
+   ]
+  },
+  {
+   "stem": "design",
+   "n_words": 11,
+   "words": [
+    {
+     "word": "designed",
+     "cf": 277
+    },
+    {
+     "word": "design",
+     "cf": 275
+    },
+    {
+     "word": "designs",
+     "cf": 59
+    },
+    {
+     "word": "designer",
+     "cf": 41
+    },
+    {
+     "word": "designated",
+     "cf": 30
+    },
+    {
+     "word": "designers",
+     "cf": 28
+    },
+    {
+     "word": "designing",
+     "cf": 24
+    },
+    {
+     "word": "designate",
+     "cf": 11
+    }
+   ]
+  },
+  {
+   "stem": "initi",
+   "n_words": 11,
+   "words": [
+    {
+     "word": "initial",
+     "cf": 195
+    },
+    {
+     "word": "initially",
+     "cf": 133
+    },
+    {
+     "word": "initiative",
+     "cf": 124
+    },
+    {
+     "word": "initiatives",
+     "cf": 40
+    },
+    {
+     "word": "initiated",
+     "cf": 21
+    },
+    {
+     "word": "initials",
+     "cf": 5
+    },
+    {
+     "word": "initiation",
+     "cf": 5
+    },
+    {
+     "word": "initiate",
+     "cf": 4
+    }
+   ]
+  },
+  {
+   "stem": "consult",
+   "n_words": 11,
+   "words": [
+    {
+     "word": "consultants",
+     "cf": 92
+    },
+    {
+     "word": "consultancy",
+     "cf": 85
+    },
+    {
+     "word": "consultation",
+     "cf": 84
+    },
+    {
+     "word": "consulting",
+     "cf": 64
+    },
+    {
+     "word": "consultant",
+     "cf": 52
+    },
+    {
+     "word": "consultative",
+     "cf": 27
+    },
+    {
+     "word": "consult",
+     "cf": 23
+    },
+    {
+     "word": "consultations",
+     "cf": 20
+    }
+   ]
+  },
+  {
+   "stem": "depend",
+   "n_words": 11,
+   "words": [
+    {
+     "word": "depend",
+     "cf": 103
+    },
+    {
+     "word": "dependent",
+     "cf": 69
+    },
+    {
+     "word": "depends",
+     "cf": 62
+    },
+    {
+     "word": "depending",
+     "cf": 57
+    },
+    {
+     "word": "dependence",
+     "cf": 46
+    },
+    {
+     "word": "depended",
+     "cf": 20
+    },
+    {
+     "word": "dependency",
+     "cf": 8
+    },
+    {
+     "word": "dependable",
+     "cf": 3
+    }
+   ]
+  },
+  {
+   "stem": "prefer",
+   "n_words": 11,
+   "words": [
+    {
+     "word": "preference",
+     "cf": 89
+    },
+    {
+     "word": "preferred",
+     "cf": 88
+    },
+    {
+     "word": "prefer",
+     "cf": 75
+    },
+    {
+     "word": "prefers",
+     "cf": 20
+    },
+    {
+     "word": "preferring",
+     "cf": 17
+    },
+    {
+     "word": "preferably",
+     "cf": 12
+    },
+    {
+     "word": "preferences",
+     "cf": 11
+    },
+    {
+     "word": "preferable",
+     "cf": 7
+    }
+   ]
+  },
+  {
+   "stem": "specul",
+   "n_words": 11,
+   "words": [
+    {
+     "word": "speculation",
+     "cf": 190
+    },
+    {
+     "word": "speculative",
+     "cf": 53
+    },
+    {
+     "word": "speculating",
+     "cf": 10
+    },
+    {
+     "word": "speculated",
+     "cf": 9
+    },
+    {
+     "word": "speculators",
+     "cf": 9
+    },
+    {
+     "word": "speculate",
+     "cf": 8
+    },
+    {
+     "word": "speculator",
+     "cf": 7
+    },
+    {
+     "word": "specul",
+     "cf": 1
+    }
+   ]
+  },
+  {
+   "stem": "market",
+   "n_words": 10,
+   "words": [
+    {
+     "word": "market",
+     "cf": 4947
+    },
+    {
+     "word": "markets",
+     "cf": 1047
+    },
+    {
+     "word": "marketing",
+     "cf": 394
+    },
+    {
+     "word": "marketed",
+     "cf": 27
+    },
+    {
+     "word": "marketable",
+     "cf": 6
+    },
+    {
+     "word": "marketeers",
+     "cf": 5
+    },
+    {
+     "word": "marketer",
+     "cf": 2
+    },
+    {
+     "word": "marketers",
+     "cf": 2
+    }
+   ]
+  }
+ ],
+ "heaps": [
+  {
+   "n_tokens": 1000,
+   "n_types": 629
+  },
+  {
+   "n_tokens": 1195,
+   "n_types": 714
+  },
+  {
+   "n_tokens": 1428,
+   "n_types": 831
+  },
+  {
+   "n_tokens": 1706,
+   "n_types": 958
+  },
+  {
+   "n_tokens": 2038,
+   "n_types": 1088
+  },
+  {
+   "n_tokens": 2436,
+   "n_types": 1250
+  },
+  {
+   "n_tokens": 2910,
+   "n_types": 1360
+  },
+  {
+   "n_tokens": 3478,
+   "n_types": 1525
+  },
+  {
+   "n_tokens": 4155,
+   "n_types": 1750
+  },
+  {
+   "n_tokens": 4965,
+   "n_types": 1958
+  },
+  {
+   "n_tokens": 5933,
+   "n_types": 2246
+  },
+  {
+   "n_tokens": 7089,
+   "n_types": 2645
+  },
+  {
+   "n_tokens": 8470,
+   "n_types": 3135
+  },
+  {
+   "n_tokens": 10121,
+   "n_types": 3914
+  },
+  {
+   "n_tokens": 12093,
+   "n_types": 4337
+  },
+  {
+   "n_tokens": 14450,
+   "n_types": 4811
+  },
+  {
+   "n_tokens": 17266,
+   "n_types": 5468
+  },
+  {
+   "n_tokens": 20631,
+   "n_types": 6070
+  },
+  {
+   "n_tokens": 24651,
+   "n_types": 6624
+  },
+  {
+   "n_tokens": 29456,
+   "n_types": 7308
+  },
+  {
+   "n_tokens": 35196,
+   "n_types": 8156
+  },
+  {
+   "n_tokens": 42055,
+   "n_types": 9068
+  },
+  {
+   "n_tokens": 50251,
+   "n_types": 10274
+  },
+  {
+   "n_tokens": 60043,
+   "n_types": 11092
+  },
+  {
+   "n_tokens": 71745,
+   "n_types": 12470
+  },
+  {
+   "n_tokens": 85726,
+   "n_types": 14007
+  },
+  {
+   "n_tokens": 102433,
+   "n_types": 16748
+  },
+  {
+   "n_tokens": 122395,
+   "n_types": 18175
+  },
+  {
+   "n_tokens": 146248,
+   "n_types": 19714
+  },
+  {
+   "n_tokens": 174748,
+   "n_types": 21303
+  },
+  {
+   "n_tokens": 208803,
+   "n_types": 23064
+  },
+  {
+   "n_tokens": 249495,
+   "n_types": 24817
+  },
+  {
+   "n_tokens": 298117,
+   "n_types": 28139
+  },
+  {
+   "n_tokens": 356214,
+   "n_types": 30149
+  },
+  {
+   "n_tokens": 425634,
+   "n_types": 32411
+  },
+  {
+   "n_tokens": 508582,
+   "n_types": 35217
+  },
+  {
+   "n_tokens": 607694,
+   "n_types": 38071
+  },
+  {
+   "n_tokens": 726122,
+   "n_types": 40639
+  },
+  {
+   "n_tokens": 867630,
+   "n_types": 44377
+  },
+  {
+   "n_tokens": 1036714,
+   "n_types": 47506
+  }
+ ],
+ "heaps_fit": {
+  "k": 9.538611,
+  "beta": 0.63378
+ },
+ "zipf": [
+  {
+   "rank": 1,
+   "freq": 11615,
+   "term": "mr"
+  },
+  {
+   "rank": 2,
+   "freq": 10215,
+   "term": "year"
+  },
+  {
+   "rank": 3,
+   "freq": 9682,
+   "term": "cent"
+  },
+  {
+   "rank": 4,
+   "freq": 8024,
+   "term": "pound"
+  },
+  {
+   "rank": 5,
+   "freq": 7518,
+   "term": "compani"
+  },
+  {
+   "rank": 6,
+   "freq": 6432,
+   "term": "market"
+  },
+  {
+   "rank": 7,
+   "freq": 5632,
+   "term": "dollar"
+  },
+  {
+   "rank": 8,
+   "freq": 4917,
+   "term": "bank"
+  },
+  {
+   "rank": 9,
+   "freq": 4487,
+   "term": "govern"
+  },
+  {
+   "rank": 10,
+   "freq": 4448,
+   "term": "share"
+  },
+  {
+   "rank": 11,
+   "freq": 4063,
+   "term": "group"
+  },
+  {
+   "rank": 13,
+   "freq": 3300,
+   "term": "price"
+  },
+  {
+   "rank": 15,
+   "freq": 3028,
+   "term": "busi"
+  },
+  {
+   "rank": 18,
+   "freq": 2974,
+   "term": "manag"
+  },
+  {
+   "rank": 21,
+   "freq": 2777,
+   "term": "profit"
+  },
+  {
+   "rank": 25,
+   "freq": 2385,
+   "term": "product"
+  },
+  {
+   "rank": 29,
+   "freq": 2320,
+   "term": "end"
+  },
+  {
+   "rank": 34,
+   "freq": 2177,
+   "term": "expect"
+  },
+  {
+   "rank": 41,
+   "freq": 1963,
+   "term": "fund"
+  },
+  {
+   "rank": 48,
+   "freq": 1806,
+   "term": "offer"
+  },
+  {
+   "rank": 56,
+   "freq": 1734,
+   "term": "union"
+  },
+  {
+   "rank": 66,
+   "freq": 1579,
+   "term": "cut"
+  },
+  {
+   "rank": 78,
+   "freq": 1471,
+   "term": "pai"
+  },
+  {
+   "rank": 92,
+   "freq": 1364,
+   "term": "larg"
+  },
+  {
+   "rank": 108,
+   "freq": 1280,
+   "term": "level"
+  },
+  {
+   "rank": 127,
+   "freq": 1157,
+   "term": "propos"
+  },
+  {
+   "rank": 150,
+   "freq": 1080,
+   "term": "rose"
+  },
+  {
+   "rank": 176,
+   "freq": 956,
+   "term": "citi"
+  },
+  {
+   "rank": 207,
+   "freq": 868,
+   "term": "contract"
+  },
+  {
+   "rank": 244,
+   "freq": 777,
+   "term": "give"
+  },
+  {
+   "rank": 288,
+   "freq": 698,
+   "term": "ga"
+  },
+  {
+   "rank": 339,
+   "freq": 614,
+   "term": "rang"
+  },
+  {
+   "rank": 399,
+   "freq": 531,
+   "term": "paid"
+  },
+  {
+   "rank": 469,
+   "freq": 464,
+   "term": "special"
+  },
+  {
+   "rank": 552,
+   "freq": 388,
+   "term": "rest"
+  },
+  {
+   "rank": 650,
+   "freq": 328,
+   "term": "word"
+  },
+  {
+   "rank": 765,
+   "freq": 276,
+   "term": "add"
+  },
+  {
+   "rank": 901,
+   "freq": 232,
+   "term": "histori"
+  },
+  {
+   "rank": 1061,
+   "freq": 193,
+   "term": "princip"
+  },
+  {
+   "rank": 1249,
+   "freq": 160,
+   "term": "struggl"
+  },
+  {
+   "rank": 1470,
+   "freq": 129,
+   "term": "reli"
+  },
+  {
+   "rank": 1731,
+   "freq": 103,
+   "term": "intellig"
+  },
+  {
+   "rank": 2038,
+   "freq": 81,
+   "term": "licens"
+  },
+  {
+   "rank": 2399,
+   "freq": 65,
+   "term": "grip"
+  },
+  {
+   "rank": 2824,
+   "freq": 50,
+   "term": "rand"
+  },
+  {
+   "rank": 3324,
+   "freq": 38,
+   "term": "gm"
+  },
+  {
+   "rank": 3913,
+   "freq": 30,
+   "term": "spin"
+  },
+  {
+   "rank": 4607,
+   "freq": 22,
+   "term": "anheus"
+  },
+  {
+   "rank": 5424,
+   "freq": 17,
+   "term": "hurri"
+  },
+  {
+   "rank": 6385,
+   "freq": 13,
+   "term": "glyndebourn"
+  },
+  {
+   "rank": 7517,
+   "freq": 10,
+   "term": "hoteli"
+  },
+  {
+   "rank": 8849,
+   "freq": 8,
+   "term": "undefin"
+  },
+  {
+   "rank": 10417,
+   "freq": 6,
+   "term": "splendour"
+  },
+  {
+   "rank": 12264,
+   "freq": 4,
+   "term": "dyno"
+  },
+  {
+   "rank": 14437,
+   "freq": 3,
+   "term": "gatton"
+  },
+  {
+   "rank": 16996,
+   "freq": 2,
+   "term": "coercion"
+  },
+  {
+   "rank": 20009,
+   "freq": 2,
+   "term": "subjug"
+  },
+  {
+   "rank": 23555,
+   "freq": 1,
+   "term": "dl"
+  },
+  {
+   "rank": 27730,
+   "freq": 1,
+   "term": "movein"
+  },
+  {
+   "rank": 32645,
+   "freq": 1,
+   "term": "zyci"
+  }
+ ],
+ "zipf_fit": {
+  "slope": -0.695676,
+  "intercept": 4.484292
+ }
+}

@@ -1,0 +1,68 @@
+{
+ "schema": "treatments.v1",
+ "generated_at": "2026-09-12T18:09:06Z",
+ "ranker": "bm25",
+ "field": "title",
+ "rows": [
+  {
+   "key": "stem_stop",
+   "label": "Stemmed, stopwords removed",
+   "n_types": 32645,
+   "map": {
+    "mean": 0.369624,
+    "lo": 0.288712,
+    "hi": 0.45471
+   },
+   "p10": {
+    "mean": 0.125352,
+    "lo": 0.095775,
+    "hi": 0.157746
+   }
+  },
+  {
+   "key": "nostem_stop",
+   "label": "Unstemmed, stopwords removed",
+   "n_types": 47506,
+   "map": {
+    "mean": 0.337616,
+    "lo": 0.25846,
+    "hi": 0.421026
+   },
+   "p10": {
+    "mean": 0.108451,
+    "lo": 0.083099,
+    "hi": 0.138028
+   }
+  },
+  {
+   "key": "stem_nostop",
+   "label": "Stemmed, stopwords kept",
+   "n_types": 32929,
+   "map": {
+    "mean": 0.36131,
+    "lo": 0.282478,
+    "hi": 0.44415
+   },
+   "p10": {
+    "mean": 0.123944,
+    "lo": 0.095775,
+    "hi": 0.15493
+   }
+  },
+  {
+   "key": "nostem_nostop",
+   "label": "Unstemmed, stopwords kept",
+   "n_types": 48010,
+   "map": {
+    "mean": 0.328695,
+    "lo": 0.252816,
+    "hi": 0.41025
+   },
+   "p10": {
+    "mean": 0.107042,
+    "lo": 0.08169,
+    "hi": 0.13662
+   }
+  }
+ ]
+}

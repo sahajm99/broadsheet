@@ -1,0 +1,1284 @@
+{
+ "schema": "topics.v1",
+ "generated_at": "2026-09-12T18:09:06Z",
+ "rows": [
+  {
+   "num": 304,
+   "title": "Endangered Species (Mammals)",
+   "n_rel": 1,
+   "n_judged": 4,
+   "ap": {
+    "tfidf_raw|title": 0.047619,
+    "tfidf_raw|title_desc": 0.027778,
+    "tfidf_raw|title_desc_narr": 0.023256,
+    "tfidf_log|title": 0.055556,
+    "tfidf_log|title_desc": 0.037037,
+    "tfidf_log|title_desc_narr": 0.019231,
+    "bm25|title": 0.090909,
+    "bm25|title_desc": 0.071429,
+    "bm25|title_desc_narr": 0.076923
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 306,
+   "title": "African Civilian Deaths",
+   "n_rel": 7,
+   "n_judged": 23,
+   "ap": {
+    "tfidf_raw|title": 0.068838,
+    "tfidf_raw|title_desc": 0.12372,
+    "tfidf_raw|title_desc_narr": 0.102637,
+    "tfidf_log|title": 0.092263,
+    "tfidf_log|title_desc": 0.18055,
+    "tfidf_log|title_desc_narr": 0.190482,
+    "bm25|title": 0.231475,
+    "bm25|title_desc": 0.278387,
+    "bm25|title_desc_narr": 0.191752
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 307,
+   "title": "New Hydroelectric Projects",
+   "n_rel": 2,
+   "n_judged": 18,
+   "ap": {
+    "tfidf_raw|title": 0.029709,
+    "tfidf_raw|title_desc": 0.038095,
+    "tfidf_raw|title_desc_narr": 0.036155,
+    "tfidf_log|title": 0.170651,
+    "tfidf_log|title_desc": 0.174479,
+    "tfidf_log|title_desc_narr": 0.611111,
+    "bm25|title": 0.261364,
+    "bm25|title_desc": 0.35,
+    "bm25|title_desc_narr": 0.366667
+   },
+   "best_run": "tfidf_log|title_desc_narr"
+  },
+  {
+   "num": 311,
+   "title": "Industrial Espionage",
+   "n_rel": 3,
+   "n_judged": 12,
+   "ap": {
+    "tfidf_raw|title": 0.557497,
+    "tfidf_raw|title_desc": 0.102029,
+    "tfidf_raw|title_desc_narr": 0.065304,
+    "tfidf_log|title": 0.556561,
+    "tfidf_log|title_desc": 0.22619,
+    "tfidf_log|title_desc_narr": 0.207431,
+    "bm25|title": 0.557887,
+    "bm25|title_desc": 0.125637,
+    "bm25|title_desc_narr": 0.117836
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 314,
+   "title": "Marine Vegetation",
+   "n_rel": 2,
+   "n_judged": 20,
+   "ap": {
+    "tfidf_raw|title": 0.0,
+    "tfidf_raw|title_desc": 0.01009,
+    "tfidf_raw|title_desc_narr": 0.005353,
+    "tfidf_log|title": 0.0,
+    "tfidf_log|title_desc": 0.019658,
+    "tfidf_log|title_desc_narr": 0.008051,
+    "bm25|title": 0.0,
+    "bm25|title_desc": 0.014494,
+    "bm25|title_desc_narr": 0.008088
+   },
+   "best_run": "tfidf_log|title_desc"
+  },
+  {
+   "num": 318,
+   "title": "Best Retirement Country",
+   "n_rel": 1,
+   "n_judged": 11,
+   "ap": {
+    "tfidf_raw|title": 0.0,
+    "tfidf_raw|title_desc": 0.008,
+    "tfidf_raw|title_desc_narr": 0.008621,
+    "tfidf_log|title": 0.0,
+    "tfidf_log|title_desc": 0.015152,
+    "tfidf_log|title_desc_narr": 0.003311,
+    "bm25|title": 0.0,
+    "bm25|title_desc": 0.0,
+    "bm25|title_desc_narr": 0.0
+   },
+   "best_run": "tfidf_log|title_desc"
+  },
+  {
+   "num": 321,
+   "title": "Women in Parliaments",
+   "n_rel": 2,
+   "n_judged": 17,
+   "ap": {
+    "tfidf_raw|title": 0.505988,
+    "tfidf_raw|title_desc": 0.504785,
+    "tfidf_raw|title_desc_narr": 0.508696,
+    "tfidf_log|title": 0.016285,
+    "tfidf_log|title_desc": 0.023754,
+    "tfidf_log|title_desc_narr": 0.263514,
+    "bm25|title": 0.255405,
+    "bm25|title_desc": 0.063492,
+    "bm25|title_desc_narr": 0.516667
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 324,
+   "title": "Argentine/British Relations",
+   "n_rel": 1,
+   "n_judged": 13,
+   "ap": {
+    "tfidf_raw|title": 1.0,
+    "tfidf_raw|title_desc": 1.0,
+    "tfidf_raw|title_desc_narr": 1.0,
+    "tfidf_log|title": 1.0,
+    "tfidf_log|title_desc": 1.0,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 330,
+   "title": "Iran-Iraq Cooperation",
+   "n_rel": 1,
+   "n_judged": 32,
+   "ap": {
+    "tfidf_raw|title": 1.0,
+    "tfidf_raw|title_desc": 1.0,
+    "tfidf_raw|title_desc_narr": 1.0,
+    "tfidf_log|title": 0.055556,
+    "tfidf_log|title_desc": 0.038462,
+    "tfidf_log|title_desc_narr": 0.5,
+    "bm25|title": 0.333333,
+    "bm25|title_desc": 0.2,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 331,
+   "title": "World Bank Criticism",
+   "n_rel": 11,
+   "n_judged": 33,
+   "ap": {
+    "tfidf_raw|title": 0.477159,
+    "tfidf_raw|title_desc": 0.477262,
+    "tfidf_raw|title_desc_narr": 0.479355,
+    "tfidf_log|title": 0.187445,
+    "tfidf_log|title_desc": 0.086415,
+    "tfidf_log|title_desc_narr": 0.139001,
+    "bm25|title": 0.333857,
+    "bm25|title_desc": 0.464032,
+    "bm25|title_desc_narr": 0.414722
+   },
+   "best_run": "tfidf_raw|title_desc_narr"
+  },
+  {
+   "num": 340,
+   "title": "Land Mine Ban",
+   "n_rel": 2,
+   "n_judged": 33,
+   "ap": {
+    "tfidf_raw|title": 0.003833,
+    "tfidf_raw|title_desc": 0.001989,
+    "tfidf_raw|title_desc_narr": 0.002249,
+    "tfidf_log|title": 0.004673,
+    "tfidf_log|title_desc": 0.002078,
+    "tfidf_log|title_desc_narr": 0.001445,
+    "bm25|title": 0.004543,
+    "bm25|title_desc": 0.002655,
+    "bm25|title_desc_narr": 0.003988
+   },
+   "best_run": "tfidf_log|title"
+  },
+  {
+   "num": 343,
+   "title": "Police Deaths",
+   "n_rel": 4,
+   "n_judged": 17,
+   "ap": {
+    "tfidf_raw|title": 0.013999,
+    "tfidf_raw|title_desc": 0.192256,
+    "tfidf_raw|title_desc_narr": 0.360104,
+    "tfidf_log|title": 0.017798,
+    "tfidf_log|title_desc": 0.254266,
+    "tfidf_log|title_desc_narr": 0.431277,
+    "bm25|title": 0.034674,
+    "bm25|title_desc": 0.540909,
+    "bm25|title_desc_narr": 0.892857
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 345,
+   "title": "Overseas Tobacco Sales",
+   "n_rel": 2,
+   "n_judged": 9,
+   "ap": {
+    "tfidf_raw|title": 0.625,
+    "tfidf_raw|title_desc": 0.555556,
+    "tfidf_raw|title_desc_narr": 0.543478,
+    "tfidf_log|title": 0.196429,
+    "tfidf_log|title_desc": 0.090278,
+    "tfidf_log|title_desc_narr": 0.065455,
+    "bm25|title": 0.5,
+    "bm25|title_desc": 0.236111,
+    "bm25|title_desc_narr": 0.309524
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 346,
+   "title": "Educational Standards",
+   "n_rel": 6,
+   "n_judged": 25,
+   "ap": {
+    "tfidf_raw|title": 0.155204,
+    "tfidf_raw|title_desc": 0.238591,
+    "tfidf_raw|title_desc_narr": 0.360901,
+    "tfidf_log|title": 0.135535,
+    "tfidf_log|title_desc": 0.11226,
+    "tfidf_log|title_desc_narr": 0.255732,
+    "bm25|title": 0.396503,
+    "bm25|title_desc": 0.320369,
+    "bm25|title_desc_narr": 0.294143
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 347,
+   "title": "Wildlife Extinction",
+   "n_rel": 1,
+   "n_judged": 6,
+   "ap": {
+    "tfidf_raw|title": 0.111111,
+    "tfidf_raw|title_desc": 0.006494,
+    "tfidf_raw|title_desc_narr": 0.005263,
+    "tfidf_log|title": 0.142857,
+    "tfidf_log|title_desc": 0.033333,
+    "tfidf_log|title_desc_narr": 0.045455,
+    "bm25|title": 0.142857,
+    "bm25|title_desc": 0.004854,
+    "bm25|title_desc_narr": 0.005102
+   },
+   "best_run": "tfidf_log|title"
+  },
+  {
+   "num": 352,
+   "title": "British Chunnel impact",
+   "n_rel": 2,
+   "n_judged": 36,
+   "ap": {
+    "tfidf_raw|title": 0.002261,
+    "tfidf_raw|title_desc": 0.000891,
+    "tfidf_raw|title_desc_narr": 0.017097,
+    "tfidf_log|title": 0.002744,
+    "tfidf_log|title_desc": 0.000998,
+    "tfidf_log|title_desc_narr": 0.04153,
+    "bm25|title": 0.00186,
+    "bm25|title_desc": 0.001846,
+    "bm25|title_desc_narr": 0.014191
+   },
+   "best_run": "tfidf_log|title_desc_narr"
+  },
+  {
+   "num": 353,
+   "title": "Antarctica exploration",
+   "n_rel": 10,
+   "n_judged": 23,
+   "ap": {
+    "tfidf_raw|title": 0.67,
+    "tfidf_raw|title_desc": 0.688425,
+    "tfidf_raw|title_desc_narr": 0.764285,
+    "tfidf_log|title": 0.7,
+    "tfidf_log|title_desc": 0.701221,
+    "tfidf_log|title_desc_narr": 0.749222,
+    "bm25|title": 0.7,
+    "bm25|title_desc": 0.701691,
+    "bm25|title_desc_narr": 0.599566
+   },
+   "best_run": "tfidf_raw|title_desc_narr"
+  },
+  {
+   "num": 354,
+   "title": "journalist risks",
+   "n_rel": 9,
+   "n_judged": 27,
+   "ap": {
+    "tfidf_raw|title": 0.308642,
+    "tfidf_raw|title_desc": 0.454779,
+    "tfidf_raw|title_desc_narr": 0.391067,
+    "tfidf_log|title": 0.401455,
+    "tfidf_log|title_desc": 0.331194,
+    "tfidf_log|title_desc_narr": 0.346105,
+    "bm25|title": 0.281285,
+    "bm25|title_desc": 0.447436,
+    "bm25|title_desc_narr": 0.400635
+   },
+   "best_run": "tfidf_raw|title_desc"
+  },
+  {
+   "num": 359,
+   "title": "mutual fund predictors",
+   "n_rel": 1,
+   "n_judged": 13,
+   "ap": {
+    "tfidf_raw|title": 0.076923,
+    "tfidf_raw|title_desc": 0.0625,
+    "tfidf_raw|title_desc_narr": 0.043478,
+    "tfidf_log|title": 0.012821,
+    "tfidf_log|title_desc": 0.004464,
+    "tfidf_log|title_desc_narr": 0.001621,
+    "bm25|title": 0.022727,
+    "bm25|title_desc": 0.010526,
+    "bm25|title_desc_narr": 0.007092
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 363,
+   "title": "transportation tunnel disasters",
+   "n_rel": 1,
+   "n_judged": 10,
+   "ap": {
+    "tfidf_raw|title": 0.333333,
+    "tfidf_raw|title_desc": 0.333333,
+    "tfidf_raw|title_desc_narr": 0.5,
+    "tfidf_log|title": 0.5,
+    "tfidf_log|title_desc": 0.5,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 0.2,
+    "bm25|title_desc": 0.2,
+    "bm25|title_desc_narr": 0.25
+   },
+   "best_run": "tfidf_log|title_desc_narr"
+  },
+  {
+   "num": 370,
+   "title": "food/drug laws",
+   "n_rel": 4,
+   "n_judged": 11,
+   "ap": {
+    "tfidf_raw|title": 0.0883,
+    "tfidf_raw|title_desc": 0.096222,
+    "tfidf_raw|title_desc_narr": 0.704861,
+    "tfidf_log|title": 0.089455,
+    "tfidf_log|title_desc": 0.089052,
+    "tfidf_log|title_desc_narr": 0.854167,
+    "bm25|title": 0.178562,
+    "bm25|title_desc": 0.22877,
+    "bm25|title_desc_narr": 0.572601
+   },
+   "best_run": "tfidf_log|title_desc_narr"
+  },
+  {
+   "num": 374,
+   "title": "Nobel prize winners",
+   "n_rel": 1,
+   "n_judged": 7,
+   "ap": {
+    "tfidf_raw|title": 0.090909,
+    "tfidf_raw|title_desc": 0.111111,
+    "tfidf_raw|title_desc_narr": 0.076923,
+    "tfidf_log|title": 0.25,
+    "tfidf_log|title_desc": 0.5,
+    "tfidf_log|title_desc_narr": 0.25,
+    "bm25|title": 0.5,
+    "bm25|title_desc": 0.5,
+    "bm25|title_desc_narr": 0.5
+   },
+   "best_run": "tfidf_log|title_desc"
+  },
+  {
+   "num": 378,
+   "title": "euro opposition",
+   "n_rel": 1,
+   "n_judged": 25,
+   "ap": {
+    "tfidf_raw|title": 0.0,
+    "tfidf_raw|title_desc": 0.009434,
+    "tfidf_raw|title_desc_narr": 0.009259,
+    "tfidf_log|title": 0.0,
+    "tfidf_log|title_desc": 0.002725,
+    "tfidf_log|title_desc_narr": 0.005025,
+    "bm25|title": 0.0,
+    "bm25|title_desc": 0.005051,
+    "bm25|title_desc_narr": 0.003891
+   },
+   "best_run": "tfidf_raw|title_desc"
+  },
+  {
+   "num": 383,
+   "title": "mental illness drugs",
+   "n_rel": 6,
+   "n_judged": 14,
+   "ap": {
+    "tfidf_raw|title": 0.113798,
+    "tfidf_raw|title_desc": 0.109177,
+    "tfidf_raw|title_desc_narr": 0.114365,
+    "tfidf_log|title": 0.110744,
+    "tfidf_log|title_desc": 0.106276,
+    "tfidf_log|title_desc_narr": 0.089217,
+    "bm25|title": 0.258636,
+    "bm25|title_desc": 0.210305,
+    "bm25|title_desc_narr": 0.274303
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 389,
+   "title": "illegal technology transfer",
+   "n_rel": 1,
+   "n_judged": 15,
+   "ap": {
+    "tfidf_raw|title": 0.00625,
+    "tfidf_raw|title_desc": 0.004065,
+    "tfidf_raw|title_desc_narr": 0.002353,
+    "tfidf_log|title": 0.011236,
+    "tfidf_log|title_desc": 0.006452,
+    "tfidf_log|title_desc_narr": 0.006452,
+    "bm25|title": 0.022222,
+    "bm25|title_desc": 0.013333,
+    "bm25|title_desc_narr": 0.005236
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 391,
+   "title": "R&D drug prices",
+   "n_rel": 5,
+   "n_judged": 21,
+   "ap": {
+    "tfidf_raw|title": 0.064852,
+    "tfidf_raw|title_desc": 0.057931,
+    "tfidf_raw|title_desc_narr": 0.042392,
+    "tfidf_log|title": 0.07244,
+    "tfidf_log|title_desc": 0.083601,
+    "tfidf_log|title_desc_narr": 0.041026,
+    "bm25|title": 0.073131,
+    "bm25|title_desc": 0.320537,
+    "bm25|title_desc_narr": 0.131862
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 392,
+   "title": "robotics",
+   "n_rel": 2,
+   "n_judged": 25,
+   "ap": {
+    "tfidf_raw|title": 1.0,
+    "tfidf_raw|title_desc": 1.0,
+    "tfidf_raw|title_desc_narr": 1.0,
+    "tfidf_log|title": 1.0,
+    "tfidf_log|title_desc": 1.0,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 395,
+   "title": "tourism",
+   "n_rel": 6,
+   "n_judged": 23,
+   "ap": {
+    "tfidf_raw|title": 0.344189,
+    "tfidf_raw|title_desc": 0.339216,
+    "tfidf_raw|title_desc_narr": 0.273753,
+    "tfidf_log|title": 0.168412,
+    "tfidf_log|title_desc": 0.193995,
+    "tfidf_log|title_desc_narr": 0.058072,
+    "bm25|title": 0.329051,
+    "bm25|title_desc": 0.384869,
+    "bm25|title_desc_narr": 0.302565
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 396,
+   "title": "sick building syndrome",
+   "n_rel": 1,
+   "n_judged": 11,
+   "ap": {
+    "tfidf_raw|title": 0.008929,
+    "tfidf_raw|title_desc": 0.006061,
+    "tfidf_raw|title_desc_narr": 0.006667,
+    "tfidf_log|title": 0.009091,
+    "tfidf_log|title_desc": 0.001923,
+    "tfidf_log|title_desc_narr": 0.004566,
+    "bm25|title": 0.014286,
+    "bm25|title_desc": 0.008696,
+    "bm25|title_desc_narr": 0.019231
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 397,
+   "title": "automobile recalls",
+   "n_rel": 1,
+   "n_judged": 7,
+   "ap": {
+    "tfidf_raw|title": 0.111111,
+    "tfidf_raw|title_desc": 0.111111,
+    "tfidf_raw|title_desc_narr": 0.142857,
+    "tfidf_log|title": 0.111111,
+    "tfidf_log|title_desc": 0.111111,
+    "tfidf_log|title_desc_narr": 0.142857,
+    "bm25|title": 0.166667,
+    "bm25|title_desc": 0.142857,
+    "bm25|title_desc_narr": 0.5
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 398,
+   "title": "dismantling Europe's arsenal",
+   "n_rel": 2,
+   "n_judged": 18,
+   "ap": {
+    "tfidf_raw|title": 0.003205,
+    "tfidf_raw|title_desc": 0.01357,
+    "tfidf_raw|title_desc_narr": 0.053343,
+    "tfidf_log|title": 0.002358,
+    "tfidf_log|title_desc": 0.026646,
+    "tfidf_log|title_desc_narr": 0.5625,
+    "bm25|title": 0.002959,
+    "bm25|title_desc": 0.027456,
+    "bm25|title_desc_narr": 0.215909
+   },
+   "best_run": "tfidf_log|title_desc_narr"
+  },
+  {
+   "num": 401,
+   "title": "foreign minorities, Germany",
+   "n_rel": 1,
+   "n_judged": 15,
+   "ap": {
+    "tfidf_raw|title": 0.030303,
+    "tfidf_raw|title_desc": 0.023256,
+    "tfidf_raw|title_desc_narr": 0.014706,
+    "tfidf_log|title": 0.002137,
+    "tfidf_log|title_desc": 0.001221,
+    "tfidf_log|title_desc_narr": 0.001024,
+    "bm25|title": 0.01087,
+    "bm25|title_desc": 0.006329,
+    "bm25|title_desc_narr": 0.007353
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 404,
+   "title": "Ireland, peace talks",
+   "n_rel": 1,
+   "n_judged": 14,
+   "ap": {
+    "tfidf_raw|title": 0.083333,
+    "tfidf_raw|title_desc": 0.142857,
+    "tfidf_raw|title_desc_narr": 0.066667,
+    "tfidf_log|title": 0.008197,
+    "tfidf_log|title_desc": 0.009709,
+    "tfidf_log|title_desc_narr": 0.008621,
+    "bm25|title": 0.043478,
+    "bm25|title_desc": 0.333333,
+    "bm25|title_desc_narr": 0.043478
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 405,
+   "title": "cosmic events",
+   "n_rel": 1,
+   "n_judged": 27,
+   "ap": {
+    "tfidf_raw|title": 0.0,
+    "tfidf_raw|title_desc": 0.0,
+    "tfidf_raw|title_desc_narr": 0.0,
+    "tfidf_log|title": 0.0,
+    "tfidf_log|title_desc": 0.0,
+    "tfidf_log|title_desc_narr": 0.0,
+    "bm25|title": 0.0,
+    "bm25|title_desc": 0.0,
+    "bm25|title_desc_narr": 0.0
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 408,
+   "title": "tropical storms",
+   "n_rel": 11,
+   "n_judged": 16,
+   "ap": {
+    "tfidf_raw|title": 0.008264,
+    "tfidf_raw|title_desc": 0.006872,
+    "tfidf_raw|title_desc_narr": 0.010123,
+    "tfidf_log|title": 0.005682,
+    "tfidf_log|title_desc": 0.00571,
+    "tfidf_log|title_desc_narr": 0.003963,
+    "bm25|title": 0.006993,
+    "bm25|title_desc": 0.005863,
+    "bm25|title_desc_narr": 0.009373
+   },
+   "best_run": "tfidf_raw|title_desc_narr"
+  },
+  {
+   "num": 410,
+   "title": "Schengen agreement",
+   "n_rel": 1,
+   "n_judged": 31,
+   "ap": {
+    "tfidf_raw|title": 1.0,
+    "tfidf_raw|title_desc": 1.0,
+    "tfidf_raw|title_desc_narr": 0.333333,
+    "tfidf_log|title": 1.0,
+    "tfidf_log|title_desc": 1.0,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 412,
+   "title": "airport security",
+   "n_rel": 1,
+   "n_judged": 37,
+   "ap": {
+    "tfidf_raw|title": 0.005848,
+    "tfidf_raw|title_desc": 0.004348,
+    "tfidf_raw|title_desc_narr": 0.004149,
+    "tfidf_log|title": 0.013333,
+    "tfidf_log|title_desc": 0.011111,
+    "tfidf_log|title_desc_narr": 0.004167,
+    "bm25|title": 0.016129,
+    "bm25|title_desc": 0.013514,
+    "bm25|title_desc_narr": 0.012821
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 416,
+   "title": "Three Gorges Project",
+   "n_rel": 1,
+   "n_judged": 19,
+   "ap": {
+    "tfidf_raw|title": 0.033333,
+    "tfidf_raw|title_desc": 0.028571,
+    "tfidf_raw|title_desc_narr": 0.005495,
+    "tfidf_log|title": 0.5,
+    "tfidf_log|title_desc": 0.5,
+    "tfidf_log|title_desc_narr": 0.1,
+    "bm25|title": 0.5,
+    "bm25|title_desc": 0.5,
+    "bm25|title_desc_narr": 0.025641
+   },
+   "best_run": "tfidf_log|title"
+  },
+  {
+   "num": 417,
+   "title": "creativity",
+   "n_rel": 1,
+   "n_judged": 31,
+   "ap": {
+    "tfidf_raw|title": 0.071429,
+    "tfidf_raw|title_desc": 0.111111,
+    "tfidf_raw|title_desc_narr": 0.066667,
+    "tfidf_log|title": 0.0625,
+    "tfidf_log|title_desc": 0.1,
+    "tfidf_log|title_desc_narr": 0.029412,
+    "bm25|title": 0.111111,
+    "bm25|title_desc": 0.2,
+    "bm25|title_desc_narr": 0.111111
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 418,
+   "title": "quilts, income",
+   "n_rel": 1,
+   "n_judged": 11,
+   "ap": {
+    "tfidf_raw|title": 0.142857,
+    "tfidf_raw|title_desc": 0.142857,
+    "tfidf_raw|title_desc_narr": 1.0,
+    "tfidf_log|title": 1.0,
+    "tfidf_log|title_desc": 1.0,
+    "tfidf_log|title_desc_narr": 0.333333,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 0.166667,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title_desc_narr"
+  },
+  {
+   "num": 421,
+   "title": "industrial waste disposal",
+   "n_rel": 1,
+   "n_judged": 36,
+   "ap": {
+    "tfidf_raw|title": 0.125,
+    "tfidf_raw|title_desc": 0.125,
+    "tfidf_raw|title_desc_narr": 0.166667,
+    "tfidf_log|title": 0.041667,
+    "tfidf_log|title_desc": 0.04,
+    "tfidf_log|title_desc_narr": 0.035714,
+    "bm25|title": 0.2,
+    "bm25|title_desc": 0.25,
+    "bm25|title_desc_narr": 0.166667
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 422,
+   "title": "art, stolen, forged",
+   "n_rel": 4,
+   "n_judged": 17,
+   "ap": {
+    "tfidf_raw|title": 0.135714,
+    "tfidf_raw|title_desc": 0.133929,
+    "tfidf_raw|title_desc_narr": 0.130823,
+    "tfidf_log|title": 0.283333,
+    "tfidf_log|title_desc": 0.241071,
+    "tfidf_log|title_desc_narr": 0.2175,
+    "bm25|title": 0.438725,
+    "bm25|title_desc": 0.438095,
+    "bm25|title_desc_narr": 0.347756
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 428,
+   "title": "declining birth rates",
+   "n_rel": 3,
+   "n_judged": 37,
+   "ap": {
+    "tfidf_raw|title": 0.034776,
+    "tfidf_raw|title_desc": 0.021257,
+    "tfidf_raw|title_desc_narr": 0.010309,
+    "tfidf_log|title": 0.189776,
+    "tfidf_log|title_desc": 0.077198,
+    "tfidf_log|title_desc_narr": 0.020044,
+    "bm25|title": 0.226667,
+    "bm25|title_desc": 0.285077,
+    "bm25|title_desc_narr": 0.118017
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 430,
+   "title": "killer bee attacks",
+   "n_rel": 1,
+   "n_judged": 6,
+   "ap": {
+    "tfidf_raw|title": 0.5,
+    "tfidf_raw|title_desc": 0.5,
+    "tfidf_raw|title_desc_narr": 0.5,
+    "tfidf_log|title": 1.0,
+    "tfidf_log|title_desc": 1.0,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 0.5,
+    "bm25|title_desc": 0.5,
+    "bm25|title_desc_narr": 0.5
+   },
+   "best_run": "tfidf_log|title"
+  },
+  {
+   "num": 431,
+   "title": "robotic technology",
+   "n_rel": 3,
+   "n_judged": 20,
+   "ap": {
+    "tfidf_raw|title": 0.866667,
+    "tfidf_raw|title_desc": 0.866667,
+    "tfidf_raw|title_desc_narr": 0.866667,
+    "tfidf_log|title": 0.833333,
+    "tfidf_log|title_desc": 0.916667,
+    "tfidf_log|title_desc_narr": 0.666667,
+    "bm25|title": 0.866667,
+    "bm25|title_desc": 0.916667,
+    "bm25|title_desc_narr": 0.916667
+   },
+   "best_run": "tfidf_log|title_desc"
+  },
+  {
+   "num": 433,
+   "title": "Greek, philosophy, stoicism",
+   "n_rel": 1,
+   "n_judged": 19,
+   "ap": {
+    "tfidf_raw|title": 0.0,
+    "tfidf_raw|title_desc": 0.0,
+    "tfidf_raw|title_desc_narr": 0.05,
+    "tfidf_log|title": 0.0,
+    "tfidf_log|title_desc": 0.0,
+    "tfidf_log|title_desc_narr": 0.333333,
+    "bm25|title": 0.0,
+    "bm25|title_desc": 0.0,
+    "bm25|title_desc_narr": 0.071429
+   },
+   "best_run": "tfidf_log|title_desc_narr"
+  },
+  {
+   "num": 434,
+   "title": "Estonia, economy",
+   "n_rel": 2,
+   "n_judged": 12,
+   "ap": {
+    "tfidf_raw|title": 0.5,
+    "tfidf_raw|title_desc": 0.5,
+    "tfidf_raw|title_desc_narr": 0.5,
+    "tfidf_log|title": 0.7,
+    "tfidf_log|title_desc": 0.666667,
+    "tfidf_log|title_desc_narr": 0.5,
+    "bm25|title": 0.75,
+    "bm25|title_desc": 0.75,
+    "bm25|title_desc_narr": 0.583333
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 435,
+   "title": "curbing population growth",
+   "n_rel": 1,
+   "n_judged": 16,
+   "ap": {
+    "tfidf_raw|title": 1.0,
+    "tfidf_raw|title_desc": 1.0,
+    "tfidf_raw|title_desc_narr": 1.0,
+    "tfidf_log|title": 1.0,
+    "tfidf_log|title_desc": 0.5,
+    "tfidf_log|title_desc_narr": 0.071429,
+    "bm25|title": 0.032258,
+    "bm25|title_desc": 0.013514,
+    "bm25|title_desc_narr": 0.027778
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 436,
+   "title": "railway accidents",
+   "n_rel": 3,
+   "n_judged": 24,
+   "ap": {
+    "tfidf_raw|title": 0.148148,
+    "tfidf_raw|title_desc": 0.146825,
+    "tfidf_raw|title_desc_narr": 0.236601,
+    "tfidf_log|title": 0.232684,
+    "tfidf_log|title_desc": 0.231452,
+    "tfidf_log|title_desc_narr": 0.541667,
+    "bm25|title": 0.094627,
+    "bm25|title_desc": 0.083578,
+    "bm25|title_desc_narr": 0.208081
+   },
+   "best_run": "tfidf_log|title_desc_narr"
+  },
+  {
+   "num": 438,
+   "title": "tourism, increase",
+   "n_rel": 4,
+   "n_judged": 24,
+   "ap": {
+    "tfidf_raw|title": 0.387821,
+    "tfidf_raw|title_desc": 0.381617,
+    "tfidf_raw|title_desc_narr": 0.375342,
+    "tfidf_log|title": 0.20423,
+    "tfidf_log|title_desc": 0.212137,
+    "tfidf_log|title_desc_narr": 0.180703,
+    "bm25|title": 0.408333,
+    "bm25|title_desc": 0.446983,
+    "bm25|title_desc_narr": 0.488542
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 439,
+   "title": "inventions, scientific discoveries",
+   "n_rel": 2,
+   "n_judged": 14,
+   "ap": {
+    "tfidf_raw|title": 0.083333,
+    "tfidf_raw|title_desc": 0.083333,
+    "tfidf_raw|title_desc_narr": 0.103968,
+    "tfidf_log|title": 0.027778,
+    "tfidf_log|title_desc": 0.03125,
+    "tfidf_log|title_desc_narr": 0.173077,
+    "bm25|title": 0.125,
+    "bm25|title_desc": 0.166667,
+    "bm25|title_desc_narr": 0.252646
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 448,
+   "title": "ship losses",
+   "n_rel": 1,
+   "n_judged": 24,
+   "ap": {
+    "tfidf_raw|title": 0.0,
+    "tfidf_raw|title_desc": 0.001575,
+    "tfidf_raw|title_desc_narr": 0.008065,
+    "tfidf_log|title": 0.0,
+    "tfidf_log|title_desc": 0.002174,
+    "tfidf_log|title_desc_narr": 0.058824,
+    "bm25|title": 0.0,
+    "bm25|title_desc": 0.00137,
+    "bm25|title_desc_narr": 0.016667
+   },
+   "best_run": "tfidf_log|title_desc_narr"
+  },
+  {
+   "num": 450,
+   "title": "King Hussein, peace",
+   "n_rel": 1,
+   "n_judged": 19,
+   "ap": {
+    "tfidf_raw|title": 0.333333,
+    "tfidf_raw|title_desc": 0.333333,
+    "tfidf_raw|title_desc_narr": 1.0,
+    "tfidf_log|title": 0.5,
+    "tfidf_log|title_desc": 0.333333,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 0.5,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title_desc_narr"
+  },
+  {
+   "num": 605,
+   "title": "Great Britain health care",
+   "n_rel": 8,
+   "n_judged": 13,
+   "ap": {
+    "tfidf_raw|title": 0.44506,
+    "tfidf_raw|title_desc": 0.473139,
+    "tfidf_raw|title_desc_narr": 0.421674,
+    "tfidf_log|title": 0.190435,
+    "tfidf_log|title_desc": 0.237351,
+    "tfidf_log|title_desc_narr": 0.35096,
+    "bm25|title": 0.589548,
+    "bm25|title_desc": 0.782189,
+    "bm25|title_desc_narr": 0.593297
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 608,
+   "title": "taxing social security",
+   "n_rel": 1,
+   "n_judged": 11,
+   "ap": {
+    "tfidf_raw|title": 0.5,
+    "tfidf_raw|title_desc": 0.5,
+    "tfidf_raw|title_desc_narr": 0.5,
+    "tfidf_log|title": 0.5,
+    "tfidf_log|title_desc": 0.083333,
+    "tfidf_log|title_desc_narr": 0.037037,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 0.25
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 616,
+   "title": "Volkswagen Mexico",
+   "n_rel": 1,
+   "n_judged": 9,
+   "ap": {
+    "tfidf_raw|title": 0.066667,
+    "tfidf_raw|title_desc": 0.066667,
+    "tfidf_raw|title_desc_narr": 0.066667,
+    "tfidf_log|title": 0.25,
+    "tfidf_log|title_desc": 0.25,
+    "tfidf_log|title_desc_narr": 0.25,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 0.5,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 619,
+   "title": "Winnie Mandela scandal",
+   "n_rel": 3,
+   "n_judged": 5,
+   "ap": {
+    "tfidf_raw|title": 0.916667,
+    "tfidf_raw|title_desc": 0.916667,
+    "tfidf_raw|title_desc_narr": 0.833333,
+    "tfidf_log|title": 1.0,
+    "tfidf_log|title_desc": 1.0,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_log|title"
+  },
+  {
+   "num": 620,
+   "title": "France nuclear testing",
+   "n_rel": 3,
+   "n_judged": 8,
+   "ap": {
+    "tfidf_raw|title": 0.133233,
+    "tfidf_raw|title_desc": 0.210039,
+    "tfidf_raw|title_desc_narr": 0.292157,
+    "tfidf_log|title": 0.420635,
+    "tfidf_log|title_desc": 0.477778,
+    "tfidf_log|title_desc_narr": 0.477778,
+    "bm25|title": 0.7,
+    "bm25|title_desc": 0.7,
+    "bm25|title_desc_narr": 0.666667
+   },
+   "best_run": "bm25|title"
+  },
+  {
+   "num": 623,
+   "title": "toxic chemical weapon",
+   "n_rel": 1,
+   "n_judged": 5,
+   "ap": {
+    "tfidf_raw|title": 0.1,
+    "tfidf_raw|title_desc": 0.111111,
+    "tfidf_raw|title_desc_narr": 0.111111,
+    "tfidf_log|title": 0.0625,
+    "tfidf_log|title_desc": 0.2,
+    "tfidf_log|title_desc_narr": 0.2,
+    "bm25|title": 0.25,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 632,
+   "title": "southeast Asia tin mining",
+   "n_rel": 3,
+   "n_judged": 15,
+   "ap": {
+    "tfidf_raw|title": 0.376812,
+    "tfidf_raw|title_desc": 0.375,
+    "tfidf_raw|title_desc_narr": 0.314815,
+    "tfidf_log|title": 0.377778,
+    "tfidf_log|title_desc": 0.388889,
+    "tfidf_log|title_desc_narr": 0.625,
+    "bm25|title": 0.444444,
+    "bm25|title_desc": 0.5,
+    "bm25|title_desc_narr": 0.805556
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 641,
+   "title": "Valdez wildlife marine life",
+   "n_rel": 1,
+   "n_judged": 5,
+   "ap": {
+    "tfidf_raw|title": 0.333333,
+    "tfidf_raw|title_desc": 1.0,
+    "tfidf_raw|title_desc_narr": 1.0,
+    "tfidf_log|title": 0.5,
+    "tfidf_log|title_desc": 1.0,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title_desc"
+  },
+  {
+   "num": 642,
+   "title": "Tiananmen Square protesters",
+   "n_rel": 1,
+   "n_judged": 9,
+   "ap": {
+    "tfidf_raw|title": 0.333333,
+    "tfidf_raw|title_desc": 1.0,
+    "tfidf_raw|title_desc_narr": 0.5,
+    "tfidf_log|title": 0.066667,
+    "tfidf_log|title_desc": 0.5,
+    "tfidf_log|title_desc_narr": 0.5,
+    "bm25|title": 0.5,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title_desc"
+  },
+  {
+   "num": 644,
+   "title": "exotic animals import",
+   "n_rel": 1,
+   "n_judged": 4,
+   "ap": {
+    "tfidf_raw|title": 0.333333,
+    "tfidf_raw|title_desc": 0.5,
+    "tfidf_raw|title_desc_narr": 0.5,
+    "tfidf_log|title": 0.142857,
+    "tfidf_log|title_desc": 1.0,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 0.333333,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_log|title_desc"
+  },
+  {
+   "num": 645,
+   "title": "software piracy",
+   "n_rel": 1,
+   "n_judged": 24,
+   "ap": {
+    "tfidf_raw|title": 1.0,
+    "tfidf_raw|title_desc": 0.25,
+    "tfidf_raw|title_desc_narr": 0.5,
+    "tfidf_log|title": 0.333333,
+    "tfidf_log|title_desc": 0.333333,
+    "tfidf_log|title_desc_narr": 0.333333,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 649,
+   "title": "computer viruses",
+   "n_rel": 3,
+   "n_judged": 10,
+   "ap": {
+    "tfidf_raw|title": 0.357406,
+    "tfidf_raw|title_desc": 0.355755,
+    "tfidf_raw|title_desc_narr": 0.373176,
+    "tfidf_log|title": 0.344978,
+    "tfidf_log|title_desc": 0.121843,
+    "tfidf_log|title_desc_narr": 0.278571,
+    "bm25|title": 0.355833,
+    "bm25|title_desc": 0.355263,
+    "bm25|title_desc_narr": 0.916667
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 665,
+   "title": "poverty Africa sub-Sahara",
+   "n_rel": 1,
+   "n_judged": 16,
+   "ap": {
+    "tfidf_raw|title": 0.083333,
+    "tfidf_raw|title_desc": 0.1,
+    "tfidf_raw|title_desc_narr": 0.111111,
+    "tfidf_log|title": 0.035714,
+    "tfidf_log|title_desc": 0.032258,
+    "tfidf_log|title_desc_narr": 0.023256,
+    "bm25|title": 0.090909,
+    "bm25|title_desc": 0.125,
+    "bm25|title_desc_narr": 0.1
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 681,
+   "title": "wind power location",
+   "n_rel": 1,
+   "n_judged": 5,
+   "ap": {
+    "tfidf_raw|title": 1.0,
+    "tfidf_raw|title_desc": 1.0,
+    "tfidf_raw|title_desc_narr": 1.0,
+    "tfidf_log|title": 1.0,
+    "tfidf_log|title_desc": 1.0,
+    "tfidf_log|title_desc_narr": 1.0,
+    "bm25|title": 1.0,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 1.0
+   },
+   "best_run": "tfidf_raw|title"
+  },
+  {
+   "num": 687,
+   "title": "Northern Ireland industry",
+   "n_rel": 4,
+   "n_judged": 22,
+   "ap": {
+    "tfidf_raw|title": 0.06681,
+    "tfidf_raw|title_desc": 0.067133,
+    "tfidf_raw|title_desc_narr": 0.064598,
+    "tfidf_log|title": 0.085265,
+    "tfidf_log|title_desc": 0.087375,
+    "tfidf_log|title_desc_narr": 0.095417,
+    "bm25|title": 0.13969,
+    "bm25|title_desc": 0.13165,
+    "bm25|title_desc_narr": 0.152904
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 692,
+   "title": "prostate cancer detection treatment",
+   "n_rel": 3,
+   "n_judged": 4,
+   "ap": {
+    "tfidf_raw|title": 0.766667,
+    "tfidf_raw|title_desc": 0.777778,
+    "tfidf_raw|title_desc_narr": 0.75,
+    "tfidf_log|title": 0.528571,
+    "tfidf_log|title_desc": 0.528571,
+    "tfidf_log|title_desc_narr": 0.361905,
+    "bm25|title": 0.916667,
+    "bm25|title_desc": 1.0,
+    "bm25|title_desc_narr": 0.833333
+   },
+   "best_run": "bm25|title_desc"
+  },
+  {
+   "num": 694,
+   "title": "compost pile",
+   "n_rel": 4,
+   "n_judged": 6,
+   "ap": {
+    "tfidf_raw|title": 0.526786,
+    "tfidf_raw|title_desc": 0.526786,
+    "tfidf_raw|title_desc_narr": 0.506944,
+    "tfidf_log|title": 0.638095,
+    "tfidf_log|title_desc": 0.65,
+    "tfidf_log|title_desc_narr": 0.8,
+    "bm25|title": 0.675595,
+    "bm25|title_desc": 0.695076,
+    "bm25|title_desc_narr": 0.95
+   },
+   "best_run": "bm25|title_desc_narr"
+  },
+  {
+   "num": 695,
+   "title": "white collar crime sentence",
+   "n_rel": 1,
+   "n_judged": 8,
+   "ap": {
+    "tfidf_raw|title": 0.028571,
+    "tfidf_raw|title_desc": 0.029412,
+    "tfidf_raw|title_desc_narr": 0.027778,
+    "tfidf_log|title": 0.017857,
+    "tfidf_log|title_desc": 0.029412,
+    "tfidf_log|title_desc_narr": 0.027027,
+    "bm25|title": 0.022222,
+    "bm25|title_desc": 0.0625,
+    "bm25|title_desc_narr": 0.043478
+   },
+   "best_run": "bm25|title_desc"
+  }
+ ]
+}

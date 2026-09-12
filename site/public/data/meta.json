@@ -1,0 +1,73 @@
+{
+ "schema": "meta.v1",
+ "generated_at": "2026-09-12T18:09:06Z",
+ "corpus_files": [
+  {
+   "name": "ft911_1",
+   "sha256": "9a42c0a6592b28f90e66c2d1c1629611d66294f5424766b9cb7111db09eab7df"
+  },
+  {
+   "name": "ft911_10",
+   "sha256": "3fdae0002aacd7e606ebb47b1747b3f39f58a7a399114330eba35ea6551d3450"
+  },
+  {
+   "name": "ft911_11",
+   "sha256": "f11104fc12afcd6e8c6c2830f5990fdc16bef7e9ae5242b77a73181e121fb76f"
+  },
+  {
+   "name": "ft911_12",
+   "sha256": "9895d2972687b62dc515c8f0cacb7f764fb4a3abf3ed32796fd6760048d22c70"
+  },
+  {
+   "name": "ft911_13",
+   "sha256": "d81974fdcfc40e6ee81ab9717c148674dd0ca932a6e51fc1498d52db03d501f9"
+  },
+  {
+   "name": "ft911_14",
+   "sha256": "0a0112209116500cb29aee4987f17cc616c0a7354acc79683cb1af80257e8085"
+  },
+  {
+   "name": "ft911_15",
+   "sha256": "8986dff621bcb2bf8f32b8ce47e32040ae09f01aa2feee3fe7d9a7f25c9b338a"
+  },
+  {
+   "name": "ft911_2",
+   "sha256": "6a401495e3ff2fddeb1a846c2ec6711aba166b6fce7b23982100aab36627a560"
+  },
+  {
+   "name": "ft911_3",
+   "sha256": "8f6f0d7c5ad54c10eb5f828fa6299c6468ecbb26e618333ab29ec10061b88185"
+  },
+  {
+   "name": "ft911_4",
+   "sha256": "0415796119ef174ae9b219d647a044d2e92da2467dfd3ce7f9f5a6e1779ea870"
+  },
+  {
+   "name": "ft911_5",
+   "sha256": "cf4dcd3ca37e84259530951c22c346b6d1a78ce5a4ff01d28dc8fe78000c6a18"
+  },
+  {
+   "name": "ft911_6",
+   "sha256": "b801c3453d5f696b2fdcb387229f0618a4d69db43c4ab62ae5f4140138838206"
+  },
+  {
+   "name": "ft911_7",
+   "sha256": "d328813f7572d66b1980432a4c28c36c30835e3242d8f0a00e8db56b359e84b3"
+  },
+  {
+   "name": "ft911_8",
+   "sha256": "e7e913845bfd0933dc1766bdd96114849a547204ea6b9c59f370db7bc3b3e730"
+  },
+  {
+   "name": "ft911_9",
+   "sha256": "d164302271c114ff0b6aea3054c18a633b38b08ba8e0e9cbcdf2702cc2a74fef"
+  }
+ ],
+ "n_docs": 5368,
+ "index_gz_bytes": 1249317,
+ "index_gz_mb": 1.25,
+ "seed": 20260912,
+ "n_boot": 10000,
+ "python": "3.12.10",
+ "numpy": "2.5.3"
+}

@@ -10,6 +10,7 @@ dicts, `allow_nan=False` (a NaN would be invalid JSON) and `mtime=0` in gzip.
 from __future__ import annotations
 
 import gzip
+import io
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -27,7 +28,31 @@ def round6(x: float) -> float:
     return round(float(x), 6)
 
 
-def write_json(path: Path, obj: dict, limit: int = SIZE_LIMIT) -> int:
+def compact_json(obj: object) -> bytes:
+    """The payload form: no whitespace, UTF-8, NaN rejected."""
+    text = json.dumps(obj, separators=(",", ":"), allow_nan=False, ensure_ascii=False)
+    return text.encode("utf-8")
+
+
+def gzip_json(obj: object) -> bytes:
+    """`compact_json` gzipped at level 9, byte-identical run to run.
+
+    `mtime=0` and `filename=""` are what make that true: without them the
+    header would carry the clock and the output path, and two identical
+    payloads would differ byte-for-byte. Returning bytes rather than writing
+    lets the caller report the size before the file is written -- which
+    `postings.json` needs, since it prints the size of an index written after
+    it.
+    """
+    buffer = io.BytesIO()
+    with gzip.GzipFile(
+        filename="", fileobj=buffer, mode="wb", compresslevel=9, mtime=0
+    ) as gz:
+        gz.write(compact_json(obj))
+    return buffer.getvalue()
+
+
+def write_json(path: Path, obj: object, limit: int = SIZE_LIMIT) -> int:
     """Write `obj` as UTF-8 JSON with LF newlines; return the byte size.
 
     Raises `ValueError` naming the file when the result is over `limit`, so a
@@ -47,17 +72,14 @@ def write_json(path: Path, obj: dict, limit: int = SIZE_LIMIT) -> int:
     return len(data)
 
 
-def write_gz(path: Path, obj: dict) -> int:
-    """Write `obj` as gzipped compact JSON; return the compressed byte size."""
+def write_bytes(path: Path, data: bytes) -> int:
+    """Write raw bytes, creating the parent directory; return the byte size."""
     path = Path(path)
-    data = json.dumps(obj, separators=(",", ":"), allow_nan=False, ensure_ascii=False)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "wb") as raw:
-        # filename="" keeps the path out of the gzip header: with `fileobj`
-        # alone, gzip stores the output file's name and two identical payloads
-        # written to different paths would differ byte-for-byte.
-        with gzip.GzipFile(
-            filename="", fileobj=raw, mode="wb", compresslevel=9, mtime=0
-        ) as gz:
-            gz.write(data.encode("utf-8"))
-    return path.stat().st_size
+    path.write_bytes(data)
+    return len(data)
+
+
+def write_gz(path: Path, obj: object) -> int:
+    """Write `obj` as gzipped compact JSON; return the compressed byte size."""
+    return write_bytes(path, gzip_json(obj))

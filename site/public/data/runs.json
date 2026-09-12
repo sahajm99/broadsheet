@@ -1,0 +1,372 @@
+{
+ "schema": "runs.v1",
+ "generated_at": "2026-09-12T18:09:06Z",
+ "n_topics": 71,
+ "n_topics_all": 250,
+ "n_rel_total": 186,
+ "n_judged_docs": 1844,
+ "n_single_rel_topics": 36,
+ "rankers": [
+  {
+   "key": "tfidf_raw",
+   "label": "tf-idf cosine (course weighting)"
+  },
+  {
+   "key": "tfidf_log",
+   "label": "log tf-idf cosine"
+  },
+  {
+   "key": "bm25",
+   "label": "BM25"
+  }
+ ],
+ "fields": [
+  {
+   "key": "title",
+   "label": "Title only"
+  },
+  {
+   "key": "title_desc",
+   "label": "Title + description"
+  },
+  {
+   "key": "title_desc_narr",
+   "label": "Title + description + narrative"
+  }
+ ],
+ "runs": [
+  {
+   "key": "tfidf_raw|title",
+   "ranker": "tfidf_raw",
+   "field": "title",
+   "metrics": {
+    "map": {
+     "mean": 0.291223,
+     "lo": 0.218431,
+     "hi": 0.369164
+    },
+    "p10": {
+     "mean": 0.104225,
+     "lo": 0.074648,
+     "hi": 0.13662
+    },
+    "ndcg10": {
+     "mean": 0.33516,
+     "lo": 0.253529,
+     "hi": 0.419189
+    },
+    "rprec": {
+     "mean": 0.220062,
+     "lo": 0.145097,
+     "hi": 0.300754
+    },
+    "recall100": {
+     "mean": 0.749463,
+     "lo": 0.658034,
+     "hi": 0.838838
+    },
+    "judged10": {
+     "mean": 0.419718,
+     "lo": 0.366197,
+     "hi": 0.474648
+    }
+   }
+  },
+  {
+   "key": "tfidf_raw|title_desc",
+   "ranker": "tfidf_raw",
+   "field": "title_desc",
+   "metrics": {
+    "map": {
+     "mean": 0.30278,
+     "lo": 0.228325,
+     "hi": 0.381341
+    },
+    "p10": {
+     "mean": 0.111268,
+     "lo": 0.083099,
+     "hi": 0.142254
+    },
+    "ndcg10": {
+     "mean": 0.357768,
+     "lo": 0.278753,
+     "hi": 0.439579
+    },
+    "rprec": {
+     "mean": 0.229345,
+     "lo": 0.152889,
+     "hi": 0.3121
+    },
+    "recall100": {
+     "mean": 0.765672,
+     "lo": 0.674541,
+     "hi": 0.853368
+    },
+    "judged10": {
+     "mean": 0.471831,
+     "lo": 0.419718,
+     "hi": 0.525352
+    }
+   }
+  },
+  {
+   "key": "tfidf_raw|title_desc_narr",
+   "ranker": "tfidf_raw",
+   "field": "title_desc_narr",
+   "metrics": {
+    "map": {
+     "mean": 0.323479,
+     "lo": 0.246092,
+     "hi": 0.402317
+    },
+    "p10": {
+     "mean": 0.109859,
+     "lo": 0.080282,
+     "hi": 0.142254
+    },
+    "ndcg10": {
+     "mean": 0.366626,
+     "lo": 0.282582,
+     "hi": 0.45108
+    },
+    "rprec": {
+     "mean": 0.237505,
+     "lo": 0.159569,
+     "hi": 0.320956
+    },
+    "recall100": {
+     "mean": 0.778583,
+     "lo": 0.687264,
+     "hi": 0.862793
+    },
+    "judged10": {
+     "mean": 0.470423,
+     "lo": 0.415493,
+     "hi": 0.525352
+    }
+   }
+  },
+  {
+   "key": "tfidf_log|title",
+   "ranker": "tfidf_log",
+   "field": "title",
+   "metrics": {
+    "map": {
+     "mean": 0.284124,
+     "lo": 0.2094,
+     "hi": 0.362549
+    },
+    "p10": {
+     "mean": 0.101408,
+     "lo": 0.073239,
+     "hi": 0.132394
+    },
+    "ndcg10": {
+     "mean": 0.331244,
+     "lo": 0.248237,
+     "hi": 0.416204
+    },
+    "rprec": {
+     "mean": 0.200856,
+     "lo": 0.125559,
+     "hi": 0.282313
+    },
+    "recall100": {
+     "mean": 0.74457,
+     "lo": 0.652581,
+     "hi": 0.832429
+    },
+    "judged10": {
+     "mean": 0.398592,
+     "lo": 0.346479,
+     "hi": 0.452113
+    }
+   }
+  },
+  {
+   "key": "tfidf_log|title_desc",
+   "ranker": "tfidf_log",
+   "field": "title_desc",
+   "metrics": {
+    "map": {
+     "mean": 0.292302,
+     "lo": 0.216575,
+     "hi": 0.373753
+    },
+    "p10": {
+     "mean": 0.111268,
+     "lo": 0.083099,
+     "hi": 0.142254
+    },
+    "ndcg10": {
+     "mean": 0.343034,
+     "lo": 0.26099,
+     "hi": 0.429047
+    },
+    "rprec": {
+     "mean": 0.214107,
+     "lo": 0.136257,
+     "hi": 0.29675
+    },
+    "recall100": {
+     "mean": 0.784131,
+     "lo": 0.692375,
+     "hi": 0.867948
+    },
+    "judged10": {
+     "mean": 0.460563,
+     "lo": 0.405634,
+     "hi": 0.514085
+    }
+   }
+  },
+  {
+   "key": "tfidf_log|title_desc_narr",
+   "ranker": "tfidf_log",
+   "field": "title_desc_narr",
+   "metrics": {
+    "map": {
+     "mean": 0.331459,
+     "lo": 0.252776,
+     "hi": 0.413828
+    },
+    "p10": {
+     "mean": 0.121127,
+     "lo": 0.091549,
+     "hi": 0.152113
+    },
+    "ndcg10": {
+     "mean": 0.390435,
+     "lo": 0.30625,
+     "hi": 0.476369
+    },
+    "rprec": {
+     "mean": 0.255595,
+     "lo": 0.174587,
+     "hi": 0.342602
+    },
+    "recall100": {
+     "mean": 0.775059,
+     "lo": 0.685793,
+     "hi": 0.858677
+    },
+    "judged10": {
+     "mean": 0.442254,
+     "lo": 0.395775,
+     "hi": 0.487324
+    }
+   }
+  },
+  {
+   "key": "bm25|title",
+   "ranker": "bm25",
+   "field": "title",
+   "metrics": {
+    "map": {
+     "mean": 0.369624,
+     "lo": 0.288712,
+     "hi": 0.45471
+    },
+    "p10": {
+     "mean": 0.125352,
+     "lo": 0.095775,
+     "hi": 0.157746
+    },
+    "ndcg10": {
+     "mean": 0.426994,
+     "lo": 0.341326,
+     "hi": 0.5139
+    },
+    "rprec": {
+     "mean": 0.288549,
+     "lo": 0.201694,
+     "hi": 0.377574
+    },
+    "recall100": {
+     "mean": 0.808149,
+     "lo": 0.72279,
+     "hi": 0.887279
+    },
+    "judged10": {
+     "mean": 0.471831,
+     "lo": 0.415493,
+     "hi": 0.530986
+    }
+   }
+  },
+  {
+   "key": "bm25|title_desc",
+   "ranker": "bm25",
+   "field": "title_desc",
+   "metrics": {
+    "map": {
+     "mean": 0.384579,
+     "lo": 0.304607,
+     "hi": 0.470098
+    },
+    "p10": {
+     "mean": 0.138028,
+     "lo": 0.107042,
+     "hi": 0.173239
+    },
+    "ndcg10": {
+     "mean": 0.448883,
+     "lo": 0.364733,
+     "hi": 0.534891
+    },
+    "rprec": {
+     "mean": 0.302719,
+     "lo": 0.218266,
+     "hi": 0.392371
+    },
+    "recall100": {
+     "mean": 0.78216,
+     "lo": 0.695302,
+     "hi": 0.863042
+    },
+    "judged10": {
+     "mean": 0.525352,
+     "lo": 0.473239,
+     "hi": 0.577465
+    }
+   }
+  },
+  {
+   "key": "bm25|title_desc_narr",
+   "ranker": "bm25",
+   "field": "title_desc_narr",
+   "metrics": {
+    "map": {
+     "mean": 0.425558,
+     "lo": 0.336787,
+     "hi": 0.516101
+    },
+    "p10": {
+     "mean": 0.133803,
+     "lo": 0.104225,
+     "hi": 0.164789
+    },
+    "ndcg10": {
+     "mean": 0.47579,
+     "lo": 0.384277,
+     "hi": 0.566806
+    },
+    "rprec": {
+     "mean": 0.354558,
+     "lo": 0.264179,
+     "hi": 0.44749
+    },
+    "recall100": {
+     "mean": 0.822016,
+     "lo": 0.736363,
+     "hi": 0.898884
+    },
+    "judged10": {
+     "mean": 0.494366,
+     "lo": 0.442254,
+     "hi": 0.54507
+    }
+   }
+  }
+ ]
+}
