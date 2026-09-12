@@ -190,4 +190,8 @@
   color: var(--ink);
   font-size: 0.875rem;
   padding: var(--space-2) var(--space-3);
+  /* A long option name would otherwise set the control's width and push it
+     past the figure on a phone. */
+  min-width: 0;
+  max-width: 100%;
 }
