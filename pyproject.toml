@@ -1,0 +1,27 @@
+[project]
+name = "broadsheet"
+version = "0.1.0"
+description = "From-scratch search engine and TREC-style evaluation over the Financial Times 1991 corpus"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.26,<3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "jupyter>=1.0",
+    "nbconvert>=7",
+    "ipykernel>=6",
+    "matplotlib>=3.8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["."]
+
+[tool.uv]
+package = false
