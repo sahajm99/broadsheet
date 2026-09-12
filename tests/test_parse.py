@@ -79,3 +79,41 @@ def test_empty_raw_dir_raises_pointing_at_source_md(tmp_path):
     with pytest.raises(FileNotFoundError) as excinfo:
         load_corpus(empty)
     assert "SOURCE.md" in str(excinfo.value)
+
+
+NL = "\n"
+
+
+def _record(docno="FT911-99", date="910514", headline="FT  14 MAY 91 / H", texts=("Body one.",)):
+    body = "".join("<TEXT>" + NL + x + NL + "</TEXT>" + NL for x in texts)
+    return (
+        "<DOC>" + NL + "<DOCNO>" + docno + "</DOCNO>" + NL + "<DATE>" + date + NL + "</DATE>" + NL
+        + "<HEADLINE>" + NL + headline + NL + "</HEADLINE>" + NL + body + "</DOC>" + NL
+    )
+
+
+def test_multiple_text_blocks_are_joined(tmp_path):
+    f = tmp_path / "ft_x"
+    f.write_text(_record(texts=("First part.", "Second part.")), encoding="utf-8")
+    docs = parse_file(f)
+    assert len(docs) == 1
+    assert "First part." in docs[0].text and "Second part." in docs[0].text
+
+
+def test_malformed_record_raises(tmp_path):
+    f = tmp_path / "ft_x"
+    f.write_text("<DOC>" + NL + "<DOCNO>FT911-5</DOCNO>" + NL + "<DATE>910514" + NL + "</DATE>" + NL + "</DOC>" + NL, encoding="utf-8")
+    with pytest.raises(ValueError, match="FT911-5"):
+        parse_file(f)
+
+
+def test_sgml_entities_are_unescaped(tmp_path):
+    f = tmp_path / "ft_x"
+    f.write_text(
+        _record(headline="FT  14 MAY 91 / M&amp;S profits", texts=("Marks &amp; Spencer rose.",)),
+        encoding="utf-8",
+    )
+    doc = parse_file(f)[0]
+    assert doc.headline == "M&S profits"
+    assert doc.text == "Marks & Spencer rose."
+    assert "amp" not in doc.text

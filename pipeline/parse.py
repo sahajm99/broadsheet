@@ -72,15 +72,19 @@ def parse_file(path: Path) -> list[Doc]:
         docno = _DOCNO_RE.search(record)
         date = _DATE_RE.search(record)
         headline = _HEADLINE_RE.search(record)
-        text = _TEXT_RE.search(record)
-        if docno is None or date is None or text is None:
-            continue
+        texts = _TEXT_RE.findall(record)
+        if docno is None or date is None or not texts:
+            label = docno.group(1).strip() if docno else "<no DOCNO>"
+            raise ValueError(
+                f"{path}: record {label} lacks DOCNO, DATE or TEXT; "
+                "the corpus file is malformed"
+            )
         docs.append(
             Doc(
                 docno=docno.group(1).strip(),
                 date=iso_date(date.group(1)),
                 headline=clean_headline(headline.group(1)) if headline else "",
-                text=_clean_text(text.group(1)),
+                text=_clean_text(chr(10).join(texts)),
             )
         )
     return docs
